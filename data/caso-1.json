@@ -1,0 +1,559 @@
+{
+  "id": "caso-1",
+  "titulo": "La diseñadora desaparecida",
+  "ubicacion": "Guadalajara, México",
+  "bandera": "🇲🇽",
+  "fecha_caso": "14 de marzo, 2026",
+  "estado": "ABIERTO",
+  "dificultad": "media",
+  "duracion_estimada": "1-2 horas",
+  "sobre_resumen": "Mujer desaparece de su departamento. Sin señales de violencia. Su celular quedó sobre la mesa.",
+
+  "victima": {
+    "nombre": "Renata Salgado Ruiz",
+    "edad": 28,
+    "ocupacion": "Diseñadora gráfica freelance",
+    "estado_civil": "Soltera, vive sola",
+    "direccion": "Av. Pablo Neruda 3045, Depto 802, Providencia, GDL",
+    "instagram": "@renatasalga_design",
+    "foto": "img/victima-renata.jpg",
+    "descripcion_publica": "Activa en redes, vida social en Chapultepec, dueña de un gato (Sushi). Trabajaba freelance para varios estudios. Personalidad pública: outfits, viajes, cafecitos."
+  },
+
+  "briefing": {
+    "titulo": "EXPEDIENTE 2026-047 — DESAPARICIÓN",
+    "subtitulo": "Fiscalía del Estado de Jalisco",
+    "hechos": [
+      "El 14 de marzo a las 11:30 AM, Carmen Ruiz (madre) reporta la desaparición de su hija Renata Salgado.",
+      "Llevaba 14 hrs sin contestar mensajes ni llamadas, algo 'totalmente fuera de su carácter'.",
+      "La madre acudió al departamento con copia de llaves: encontró todo aparentemente normal pero ningún rastro de Renata.",
+      "El gato no había sido alimentado.",
+      "El celular de Renata estaba sobre la mesa de centro, apagado.",
+      "Su bolso, llaves del auto y pasaporte también estaban en el departamento."
+    ],
+    "ultima_actividad": [
+      { "hora": "13 mar 8:47 PM", "evento": "Story en Instagram desde Le Petit Café (Chapultepec) con Paulina Treviño" },
+      { "hora": "13 mar 10:23 PM", "evento": "Uber pagado de Chapultepec a su departamento (llegó 10:51 PM, confirmado por cámaras del lobby)" },
+      { "hora": "13 mar 11:02 PM", "evento": "Última conexión a WhatsApp" }
+    ],
+    "observaciones": "No hay señales evidentes de violencia. No hay nota. No hay testigos en el piso.",
+    "nota_jefe": "Detective, los muchachos peinaron escena pero nada. Te paso todo. Te dejo el teléfono que llegó apagado — ya lo desbloqueamos. Tienes contactos clave en el anexo. 18 hrs perdidas. Encuéntrala antes de que sean 72. — Cmdte. Reyes"
+  },
+
+  "sospechosos": [
+    {
+      "id": "marcos",
+      "nombre": "Marcos Pineda",
+      "edad": 33,
+      "ocupacion": "Abogado corporativo",
+      "relacion": "Exnovio (4 años, terminaron hace 8 meses)",
+      "vive_en": "Zapopan",
+      "motivo_aparente": "Despecho, fue posesivo en la relación",
+      "coartada_inicial": "Estaba en Vallarta de viaje con mi novia actual",
+      "telefono": "33 1234 5678",
+      "foto": "img/sospechoso-marcos.jpg"
+    },
+    {
+      "id": "paulina",
+      "nombre": "Paulina Treviño",
+      "edad": 29,
+      "ocupacion": "Dueña de boutique en Chapultepec",
+      "relacion": "Mejor amiga desde la prepa",
+      "vive_en": "Providencia (4 cuadras de Renata)",
+      "motivo_aparente": "Ninguno aparente — la última que la vio con vida",
+      "coartada_inicial": "La dejé en el Uber, me fui caminando a mi casa",
+      "telefono": "33 2233 4455",
+      "foto": "img/sospechoso-paulina.jpg"
+    },
+    {
+      "id": "roberto",
+      "nombre": "Roberto Vela",
+      "edad": 52,
+      "ocupacion": "Dueño del estudio 'Vela Branding'",
+      "relacion": "Jefe del estudio donde Renata hacía freelance (3 años)",
+      "vive_en": "Puerta de Hierro",
+      "motivo_aparente": "Renata lo amenazó con denunciar acoso laboral",
+      "coartada_inicial": "Estaba con mi familia en casa, hay cámaras",
+      "telefono": "33 3344 5566",
+      "foto": "img/sospechoso-roberto.jpg"
+    },
+    {
+      "id": "esteban",
+      "nombre": "Don Esteban Morales",
+      "edad": 67,
+      "ocupacion": "Jubilado",
+      "relacion": "Vecino del depto 803 (al lado de Renata)",
+      "vive_en": "Mismo edificio, depto 803",
+      "motivo_aparente": "Viejo solitario, podría ser obsesivo",
+      "coartada_inicial": "Estaba dormido, no oí nada raro",
+      "telefono": "33 4455 6677",
+      "foto": "img/sospechoso-esteban.jpg"
+    },
+    {
+      "id": "diego",
+      "nombre": "Diego Herrera",
+      "edad": 41,
+      "ocupacion": "Dueño de cadena de restaurantes",
+      "relacion": "Cliente moroso desde 2024",
+      "vive_en": "Country Club",
+      "motivo_aparente": "Renata lo amenazó con demandarlo por $95,000 MXN no pagados",
+      "coartada_inicial": "Cena de negocios en Andares, hay testigos",
+      "telefono": "33 5566 7788",
+      "foto": "img/sospechoso-diego.jpg"
+    }
+  ],
+
+  "telefono_victima": {
+    "modelo": "iPhone de Renata",
+    "pin": "1402",
+    "pista_pin": "Está en una nota pegada en la cocina de la escena: '1402 — cumple de mamá'",
+    "apps": {
+      "whatsapp": {
+        "nombre": "WhatsApp",
+        "icono": "💬",
+        "chats": [
+          {
+            "id": "mama",
+            "nombre": "Mamá 💖",
+            "ultima_hora": "11:01 PM",
+            "mensajes": [
+              { "de": "mama", "hora": "10:34 PM", "texto": "Hijita ¿ya llegaste?" },
+              { "de": "renata", "hora": "10:55 PM", "texto": "Sí ma, llegando" },
+              { "de": "mama", "hora": "11:00 PM", "texto": "Descansa preciosa, te quiero mucho 🌷" },
+              { "de": "renata", "hora": "11:01 PM", "texto": "te quiero ma 💕" }
+            ]
+          },
+          {
+            "id": "paulina",
+            "nombre": "Pau 🦄",
+            "ultima_hora": "11:13 PM",
+            "mensajes": [
+              { "de": "paulina", "hora": "13 mar 6:30 PM", "texto": "amigaaaa lista? llego en 20" },
+              { "de": "renata", "hora": "13 mar 6:32 PM", "texto": "ya bajando" },
+              { "de": "paulina", "hora": "11:08 PM", "texto": "te dejé bien? me siento mal de no haberte acompañado arriba" },
+              { "de": "renata", "hora": "11:09 PM", "texto": "todo bien Pau, ya estoy en el depto" },
+              { "de": "paulina", "hora": "11:11 PM", "texto": "ok descansa, necesito procesar todo lo que me dijiste 🥺" },
+              { "de": "renata", "hora": "11:12 PM", "texto": "lo sé, perdón por soltártelo así. mañana hablamos bien?" },
+              { "de": "paulina", "hora": "11:13 PM", "texto": "[mensaje eliminado]", "borrado": true, "texto_real": "no abras la puerta a nadie más, voy subiendo" }
+            ]
+          },
+          {
+            "id": "marcos",
+            "nombre": "Marcos",
+            "ultima_hora": "12 mar 9:14 PM",
+            "mensajes": [
+              { "de": "marcos", "hora": "5 feb 8:22 PM", "texto": "Hola. Sé que dijiste que no, pero necesito hablar contigo de lo de antes" },
+              { "de": "renata", "hora": "5 feb 9:00 PM", "texto": "No tenemos nada de qué hablar Marcos" },
+              { "de": "marcos", "hora": "5 feb 9:02 PM", "texto": "Por favor. Solo un café" },
+              { "de": "renata", "hora": "20 feb 4:15 PM", "texto": "Ok. Solo un café." },
+              { "de": "marcos", "hora": "1 mar 11:30 PM", "texto": "Estuvo bien verte. ¿Lo piensas?" },
+              { "de": "renata", "hora": "8 mar 2:10 PM", "texto": "Lo estoy pensando. No es no" },
+              { "de": "marcos", "hora": "12 mar 9:14 PM", "texto": "¿Cenamos cuando regreses de tu fin? Te extraño" }
+            ]
+          },
+          {
+            "id": "roberto",
+            "nombre": "Roberto V. (jefe)",
+            "ultima_hora": "10 mar 8:47 AM",
+            "mensajes": [
+              { "de": "roberto", "hora": "1 mar 10:00 AM", "texto": "Renata, necesito hablar contigo del proyecto Aragón. ¿Te paso por la mañana?" },
+              { "de": "renata", "hora": "1 mar 10:20 AM", "texto": "Tengo el archivo listo. ¿Y mi pago de febrero?" },
+              { "de": "roberto", "hora": "1 mar 10:21 AM", "texto": "Vamos viendo. Estoy un poco apretado este mes" },
+              { "de": "roberto", "hora": "4 mar 9:00 PM", "audio": true, "duracion": "1:47", "transcripcion": "Renata, oye... mira, lo del otro día en la oficina, yo... discúlpame. Estaba tomado, no debí. Te juro que no volverá a pasar. Por favor no comentes esto con nadie, sabes que mi esposa..." },
+              { "de": "renata", "hora": "4 mar 11:30 PM", "texto": "Roberto, tienes hasta el viernes con mi dinero o voy a denuncia. Tu audio y mi denuncia van juntos a recursos." },
+              { "de": "roberto", "hora": "10 mar 8:47 AM", "texto": "Trabajemos esto en persona. No por mensaje" }
+            ]
+          },
+          {
+            "id": "diego",
+            "nombre": "Diego Herrera (Cliente Tacos H)",
+            "ultima_hora": "10 mar 11:55 PM",
+            "mensajes": [
+              { "de": "renata", "hora": "20 feb 10:00 AM", "texto": "Diego, sigue pendiente la factura de la campaña de febrero. Son $95,000 MXN" },
+              { "de": "diego", "hora": "20 feb 3:00 PM", "texto": "Estoy en cierre de mes" },
+              { "de": "renata", "hora": "1 mar 9:00 AM", "texto": "Diego, ya van 3 meses. Te paso de nuevo la factura" },
+              { "de": "diego", "hora": "1 mar 9:30 AM", "texto": "Te dije que estoy apretado" },
+              { "de": "renata", "hora": "10 mar 11:50 PM", "texto": "Mañana le paso el caso a un abogado. Tienes hasta el lunes" },
+              { "de": "diego", "hora": "10 mar 11:55 PM", "texto": "Ya déjame en paz o te va a ir mal" }
+            ]
+          },
+          {
+            "id": "mateo",
+            "nombre": "❤️ M",
+            "ultima_hora": "13 mar 11:02 PM",
+            "es_secreto": true,
+            "mensajes": [
+              { "de": "mateo", "hora": "8 dic 9:00 PM", "texto": "Hi 👋 Te encontré por Behance, tu trabajo es ridículamente bueno" },
+              { "de": "renata", "hora": "8 dic 9:30 PM", "texto": "Hola! Gracias. ¿Eres de NY?" },
+              { "de": "mateo", "hora": "20 ene 10:00 PM", "texto": "Ya te extraño, cuándo vienes?" },
+              { "de": "renata", "hora": "20 ene 10:05 PM", "texto": "25 de marzo. Boleto comprado 🥹" },
+              { "de": "mateo", "hora": "1 mar 8:00 PM", "texto": "El depto está listo. Tu lado del clóset vacío 💚" },
+              { "de": "renata", "hora": "12 mar 7:00 PM", "texto": "Hoy le digo a Pau. Estoy nerviosa" },
+              { "de": "mateo", "hora": "12 mar 7:02 PM", "texto": "Vas a estar bien. Ella te quiere, va a entender" },
+              { "de": "renata", "hora": "13 mar 11:02 PM", "texto": "Ya le dije. Reaccionó raro. Mañana te cuento bien. Te amo 🗽" }
+            ]
+          }
+        ]
+      },
+      "galeria": {
+        "nombre": "Fotos",
+        "icono": "🖼️",
+        "fotos": [
+          { "id": "g1", "thumbnail": "img/foto-cafe.jpg", "descripcion": "Selfie con Paulina en Le Petit Café", "fecha": "13 mar 8:30 PM", "ubicacion": "Chapultepec, GDL" },
+          { "id": "g2", "thumbnail": "img/foto-pasaporte.jpg", "descripcion": "Pasaporte propio sobre escritorio", "fecha": "12 mar 4:15 PM", "ubicacion": "Depto Renata" },
+          { "id": "g3", "thumbnail": "img/foto-anillo.jpg", "descripcion": "Anillo de plata con grabado 'M+R'", "fecha": "5 mar 6:00 PM", "ubicacion": "Joyería Centro" },
+          { "id": "g4", "thumbnail": "img/foto-estacionamiento.jpg", "descripcion": "Foto borrosa de Mazda CX-5 en estacionamiento del edificio. Tomada por la mirilla.", "fecha": "11 mar 3:14 AM", "ubicacion": "Edificio Pablo Neruda 3045" },
+          { "id": "g5", "thumbnail": "img/foto-sushi.jpg", "descripcion": "Sushi (el gato)", "fecha": "10 mar 2:00 PM", "ubicacion": "Depto Renata" }
+        ]
+      },
+      "llamadas": {
+        "nombre": "Llamadas",
+        "icono": "📞",
+        "registro": [
+          { "contacto": "Paulina Treviño", "tipo": "saliente", "fecha": "13 mar 6:14 PM", "duracion": "0:34" },
+          { "contacto": "Paulina Treviño", "tipo": "entrante", "fecha": "13 mar 10:55 PM", "duracion": "0:12" },
+          { "contacto": "Mamá", "tipo": "entrante", "fecha": "13 mar 7:30 PM", "duracion": "2:05" },
+          { "contacto": "Marcos", "tipo": "perdida", "fecha": "12 mar 11:30 PM", "duracion": "0:00" },
+          { "contacto": "Roberto V.", "tipo": "saliente", "fecha": "10 mar 9:00 AM", "duracion": "5:42" },
+          { "contacto": "+1 212 555 0173", "tipo": "saliente", "fecha": "12 mar 10:00 PM", "duracion": "47:21" }
+        ]
+      },
+      "notas": {
+        "nombre": "Notas",
+        "icono": "📝",
+        "lista": [
+          { "titulo": "Mudanza NY ✈️", "fecha": "10 mar", "texto": "- Comprar maletas grandes\n- Vender la mesa de trabajo (¿venderle a Pau?)\n- Hablar con Sushi (¿se queda con Pau o se va conmigo?)\n- Cancelar membresía gym\n- Avisar a Roberto (después del pago)\n- Avisar a clientes (después de cobrar todo)" },
+          { "titulo": "RECORDATORIO IMPORTANTE", "fecha": "11 mar", "texto": "HABLAR CON PAU EL VIERNES ANTES DE DECIRLE A MAMÁ. Ella merece saberlo primero." },
+          { "titulo": "Cosas raras 🤔", "fecha": "11 mar", "texto": "Hace 3 días vi el carro de Pau en mi estacionamiento a las 3 AM. ¿Por qué? Hoy le pregunté y dijo que se confundió de edificio. No le creo. Voy a estar atenta." }
+        ]
+      },
+      "correo": {
+        "nombre": "Correo",
+        "icono": "📧",
+        "lista": [
+          { "de": "Aeroméxico", "asunto": "Tu boleto está listo — GDL → JFK", "fecha": "1 feb", "preview": "Vuelo AM 404 · 25 mar 2026 · Salida 11:20 PM · Llegada JFK 6:30 AM 26 mar..." },
+          { "de": "Brooklyn Realty", "asunto": "Welcome to your new home, Renata!", "fecha": "1 mar", "preview": "Contract signed for 412 Bedford Ave, Apt 3B. Move-in date: March 26, 2026..." },
+          { "de": "Roberto Vela", "asunto": "Re: pago pendiente", "fecha": "8 mar", "preview": "Renata, no me amenaces. Las cosas se pueden poner feas para ti también. Hablemos como adultos en persona." },
+          { "de": "Mateo Whitman", "asunto": "Cosas para tu lado del clóset", "fecha": "10 mar", "preview": "Adjunto fotos del depto. Tu escritorio ya está armado mirando al puente. Te va a encantar..." }
+        ]
+      },
+      "instagram": {
+        "nombre": "Instagram",
+        "icono": "📷",
+        "perfil": "@renatasalga_design",
+        "ultimas_stories": [
+          { "fecha": "13 mar 8:47 PM", "descripcion": "Copa de vino + Paulina sonriendo, caption: 'viernes de chicas 🍷'" },
+          { "fecha": "11 mar 11:00 AM", "descripcion": "Mockup de identidad para café nuevo" },
+          { "fecha": "9 mar 4:30 PM", "descripcion": "Sushi tomando sol en la ventana" }
+        ],
+        "dms_destacados": [
+          { "de": "@anon_jal_2024", "fecha": "5 mar", "texto": "Si vuelves a diseñar algo para los Aragón te va a pesar pendeja", "nota": "Trolls/haters por campaña política reciente" },
+          { "de": "@mateo.wh", "fecha": "12 mar", "texto": "Cuento los días 🗽" }
+        ]
+      }
+    }
+  },
+
+  "escena_crimen": {
+    "ubicacion": "Depto 802, Av. Pablo Neruda 3045",
+    "hora_revision": "14 mar 1:00 PM",
+    "imagen": "img/escena-sala.jpg",
+    "descripcion_general": "Sala-comedor en penumbra. Cortinas medio cerradas. Aroma a vino tinto. Sushi maullando.",
+    "puntos": [
+      {
+        "id": "p1",
+        "nombre": "Mesa de centro: 2 copas de vino",
+        "x": 35, "y": 60,
+        "zoom_descripcion": "Dos copas vacías. Una tiene marca de labial rosa. Renata según Instagram usaba labial rojo.",
+        "es_clave": false,
+        "es_trampa": false,
+        "auto_nota": "En la mesa había 2 copas. Una con marca de labial ROSA (Renata usaba rojo)."
+      },
+      {
+        "id": "p2",
+        "nombre": "Sillón: cojín con marcas de presión",
+        "x": 70, "y": 55,
+        "zoom_descripcion": "Cojín gris con marcas profundas de presión. Como si alguien lo hubiera apretado contra algo con fuerza por largo tiempo.",
+        "es_clave": true,
+        "puede_recoger": true,
+        "auto_nota": "Cojín del sillón con marcas extrañas de presión."
+      },
+      {
+        "id": "p3",
+        "nombre": "Cocina: copa con residuo + botella vino",
+        "x": 25, "y": 25,
+        "zoom_descripcion": "Una copa con residuo turbio en el fondo. La botella de vino sigue ahí, descorchada.",
+        "es_clave": true,
+        "puede_recoger": true,
+        "es_dos_objetos": ["copa_residuo", "botella_vino"],
+        "auto_nota": "En la cocina hay una copa con residuo turbio y una botella de vino abierta."
+      },
+      {
+        "id": "p4",
+        "nombre": "Recámara: cama sin destender + pasaporte",
+        "x": 80, "y": 30,
+        "zoom_descripcion": "Cama tendida. Pasaporte sobre la mesita de noche, abierto en la página de la foto.",
+        "es_clave": false,
+        "es_trampa": true,
+        "auto_nota": "La cama está tendida. Pasaporte de Renata sobre la mesita, abierto."
+      },
+      {
+        "id": "p5",
+        "nombre": "Entrada: gato Sushi maullando",
+        "x": 15, "y": 75,
+        "zoom_descripcion": "Sushi tiene hambre. El plato está vacío. La caja de arena está limpia (no ha sido usada en horas).",
+        "es_clave": false,
+        "es_trampa": false,
+        "auto_nota": "El gato no fue alimentado anoche. Ni siquiera fue al baño."
+      },
+      {
+        "id": "p6",
+        "nombre": "Tapete bajo la mesa: mancha pequeña",
+        "x": 50, "y": 80,
+        "zoom_descripcion": "Una mancha pequeña, casi invisible, en el filo del tapete. Color claro contra el patrón.",
+        "es_clave": true,
+        "puede_recoger": true,
+        "auto_nota": "Mancha pequeña casi invisible en el tapete bajo la mesa."
+      },
+      {
+        "id": "p7",
+        "nombre": "Cocina: nota en el refrigerador",
+        "x": 12, "y": 35,
+        "zoom_descripcion": "Una nota adhesiva amarilla en el refrigerador. Dice: '1402 — cumple de mamá'.",
+        "es_clave": true,
+        "es_pin": "1402",
+        "auto_nota": "Nota en el refrigerador: '1402 — cumple de mamá'. Probable PIN del celular."
+      },
+      {
+        "id": "p8",
+        "nombre": "Concierge: pedir grabaciones del lobby/estacionamiento",
+        "x": 90, "y": 90,
+        "zoom_descripcion": "Las cámaras del edificio guardan 7 días de grabación. Puedes pedirlas a la administración.",
+        "es_clave": true,
+        "puede_recoger": true,
+        "es_camaras": true,
+        "auto_nota": "Solicitar grabaciones de cámaras del edificio (lobby + estacionamiento)."
+      }
+    ],
+    "max_solicitudes_policia": 4
+  },
+
+  "analisis_forenses": {
+    "copa_residuo": {
+      "de": "Forense Ramírez",
+      "texto": "Copa con residuo: contiene zolpidem 10mg disuelto. Dosis suficiente para inducir sueño profundo en 25 minutos."
+    },
+    "cojin": {
+      "de": "Forense Ramírez",
+      "texto": "Cojín: fibras de cabello rizado castaño + saliva con trazas de zolpidem (de la víctima). Indicios consistentes con asfixia post-sedación."
+    },
+    "botella_vino": {
+      "de": "Forense Ramírez",
+      "texto": "Botella de vino: huellas de Renata Salgado + huellas no registradas inicialmente. Por descarte con saliva en boquilla, match: PAULINA TREVIÑO."
+    },
+    "mancha_tapete": {
+      "de": "Forense Ramírez",
+      "texto": "Mancha en tapete: rastros de saliva de Renata + microgotas de líquido gástrico. Consistente con cuerpo siendo arrastrado/cargado en posición horizontal."
+    },
+    "camaras": {
+      "de": "Análisis Cámaras del Edificio",
+      "texto": "Adjunto: a las 3:42 AM se ve Mazda CX-5 placas JLZ-8842 entrando al estacionamiento subterráneo. A las 4:18 AM el mismo Mazda sale del edificio. Conductora identificada por base de datos vehicular: PAULINA TREVIÑO."
+    },
+    "pasaporte": {
+      "de": "Forense Ramírez",
+      "texto": "Pasaporte: solo huellas de Renata. Sin valor forense relevante."
+    },
+    "plato_gato": {
+      "de": "Forense Ramírez",
+      "texto": "Plato del gato: residuos de croqueta y saliva felina. Sin valor forense."
+    },
+    "copas_sala": {
+      "de": "Forense Ramírez",
+      "texto": "Copas de la sala: limpias por dentro. Marca de labial rosa exterior. Sin contenido analizable."
+    }
+  },
+
+  "llamadas_arboles": {
+    "marcos": {
+      "nivel_inicial": [
+        { "id": "m1", "texto": "¿Dónde estabas la noche del viernes?", "respuesta": "Te lo dije. En Vallarta con Sara, mi novia. Llegamos jueves regresamos domingo." },
+        { "id": "m2", "texto": "¿Cuándo fue la última vez que viste a Renata?", "respuesta": "La semana pasada, tomamos un café. Habíamos vuelto a hablar. Estaba bien." },
+        { "id": "m3", "texto": "¿Por qué terminaron hace 8 meses?", "respuesta": "Yo era muy posesivo. Lo trabajé. Por eso le pedí otra oportunidad." },
+        { "id": "m4", "texto": "¿Sabes si tenía problemas con alguien?", "respuesta": "Con Roberto, su jefe. Decía que era un cerdo. Le retenía pagos." },
+        { "id": "m5", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "m_evid_gasolina",
+          "requiere_evidencia": "cargo_gasolinera",
+          "texto": "Tu tarjeta hizo un cargo en una gasolinera de Tlaquepaque el 13 mar a las 9 PM. Estabas en GDL.",
+          "respuesta": "...mierda. Está bien. Sí estaba en GDL. Pero no con Sara. Estaba con Andrea. Es mi amante desde hace 6 meses. Sara no sabe nada. Te puedo dar el teléfono de Andrea, ella confirma — estuvimos en su depto desde las 8 PM hasta las 10 AM del sábado.",
+          "nuevo_estatus": "DESCARTADO con coartada secundaria"
+        }
+      ]
+    },
+    "paulina": {
+      "nivel_inicial": [
+        { "id": "p1", "texto": "Cuéntame del viernes, cómo estuvo el plan", "respuesta": "Cenamos en Le Petit, hablamos de muchas cosas... ella estaba feliz. La acompañé al Uber, le dije bye y me fui caminando. Vivo cerca." },
+        { "id": "p2", "texto": "¿Notaste algo raro? ¿Estaba diferente?", "respuesta": "Nada raro. Bueno... me dijo algo importante. Pero estaba feliz, no asustada." },
+        { "id": "p3", "texto": "¿Qué te dijo?", "respuesta": "Que se mudaba a Nueva York. Conoció a alguien. Yo... no lo esperaba. Me dio gusto por ella." },
+        { "id": "p4", "texto": "¿Sabes si tenía problemas con alguien?", "respuesta": "Roberto, su jefe, era un asqueroso. Y un cliente le debía dinero, Diego algo. Pero no sé si para tanto." },
+        { "id": "p5", "texto": "¿Por qué no la acompañaste hasta el depto?", "respuesta": "Ella prefirió ir sola. Me dijo que necesitaba pensar." },
+        { "id": "p6", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "p_evid_mensaje",
+          "requiere_evidencia": "msg_borrado_paulina",
+          "texto": "Recuperamos un mensaje que le mandaste a las 11:13 PM y borraste: 'no abras la puerta a nadie más, voy subiendo'. ¿Subiste?",
+          "respuesta": "...eso... no, ese mensaje no era para ella. Me equivoqué de chat. Lo borré por eso. Yo no subí, juro que no subí.",
+          "tono": "nerviosa"
+        },
+        {
+          "id": "p_evid_mateo",
+          "requiere_evidencia": "chat_mateo",
+          "texto": "Te confesó que se iba a NY con Mateo. ¿Qué sentiste al escucharlo?",
+          "respuesta": "(silencio) ...detective, no sé a dónde va con esto. Sentí... felicidad por ella. Eso sentí.",
+          "tono": "defensiva"
+        },
+        {
+          "id": "p_evid_camaras",
+          "requiere_evidencia": "video_camaras",
+          "texto": "Las cámaras del estacionamiento muestran tu Mazda entrando a las 3:42 AM y saliendo a las 4:18 AM. Explícamelo.",
+          "respuesta": "(silencio largo) ...quiero un abogado.",
+          "tono": "quebrada"
+        },
+        {
+          "id": "p_evid_huellas",
+          "requiere_evidencia": "huellas_botella",
+          "texto": "Tus huellas están en la botella de vino del depto de Renata. La botella que sirvió la copa con somnífero.",
+          "respuesta": "(llanto) ...la quería. La quería desde la prepa. Y se iba a ir con un tipo de internet. No iba a verla nunca más. No podía. No podía dejarla irse. (confesión completa sigue)",
+          "tono": "confesion_completa"
+        }
+      ]
+    },
+    "roberto": {
+      "nivel_inicial": [
+        { "id": "r1", "texto": "¿Dónde estaba el viernes en la noche?", "respuesta": "Cenando en casa con mi esposa y mis hijos. Tengo cámaras de seguridad, puedo enviar el video." },
+        { "id": "r2", "texto": "¿Cómo era su relación con Renata?", "respuesta": "Profesional. Excelente diseñadora. La extrañaremos en el estudio." },
+        { "id": "r3", "texto": "¿Tenía algún conflicto con ella?", "respuesta": "(pausa) ...si quiere hablar de eso, quiero a mi abogado presente." },
+        { "id": "r4", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "r_evid_audio",
+          "requiere_evidencia": "audio_disculpa",
+          "texto": "Tengo un audio suyo del 4 de marzo donde se disculpa por 'lo del otro día en la oficina'. Hable claro o llamo a su esposa.",
+          "respuesta": "(suspiro largo) ...detective, estaba tomado. La toqué sin su consentimiento. Es lo único que pasó. Lo demás es chantaje. Le debía dinero del proyecto Aragón, sí. Lo iba a pagar el viernes. Mi familia confirma dónde estuve. Por favor no le diga a mi esposa.",
+          "nuevo_estatus": "Acoso laboral confirmado pero coartada sólida — DESCARTADO de homicidio"
+        }
+      ]
+    },
+    "esteban": {
+      "nivel_inicial": [
+        { "id": "e1", "texto": "¿Escuchó algo esa noche?", "respuesta": "Nada hijo, yo me duermo temprano." },
+        { "id": "e2", "texto": "¿Conocía bien a Renata?", "respuesta": "Una niña encantadora. Me regalaba pan dulce. Yo le cuidaba el gato cuando viajaba." },
+        { "id": "e3", "texto": "¿Vio entrar o salir a alguien?", "respuesta": "Ya le dije, dormí toda la noche. Nada." },
+        { "id": "e4", "texto": "¿Tiene alguna cámara?", "respuesta": "No, no me gustan esas cosas." },
+        { "id": "e5", "texto": "Lo escucho nervioso. ¿Le pasa algo?", "respuesta": "Es solo tristeza, detective. La niña era buena gente." },
+        { "id": "e6", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "e_evid_camaras",
+          "requiere_evidencia": "video_camaras",
+          "texto": "Don Esteban, las cámaras muestran que entró un Mazda al estacionamiento a las 3:42 AM. Su mirilla da al pasillo del elevador. ¿Vio algo?",
+          "respuesta": "(silencio largo)... sí. Sí vi. Una mujer bajita, cabello rizado. Cargaba algo grande, parecía pesado. Lo metió al elevador, bajó al estacionamiento. Yo... lo siento, no quería meterme. Mi nieto tuvo un problema con la policía hace años y yo prometí no... pero ya no aguanto. Era ella, ¿verdad? La amiga.",
+          "es_testigo_clave": true
+        }
+      ]
+    },
+    "diego": {
+      "nivel_inicial": [
+        { "id": "d1", "texto": "¿Dónde estaba el viernes en la noche?", "respuesta": "En Andares, cena de negocios con socios de Monterrey. Hay siete personas que pueden confirmar. Le paso los teléfonos." },
+        { "id": "d2", "texto": "¿Por qué no le había pagado a Renata?", "respuesta": "Problemas de flujo. No es la primera vez con un proveedor. Lo iba a resolver." },
+        { "id": "d3", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "d_evid_amenaza",
+          "requiere_evidencia": "msg_amenaza_diego",
+          "texto": "Le mandó un mensaje el 10 de marzo: 'ya déjame en paz o te va a ir mal'. Eso es amenaza.",
+          "respuesta": "Ay por favor detective. Eso es una figura retórica. Yo le iba a pagar el lunes. Estaba molesto porque me amenazó con un abogado. Pero yo en Andares, mire le paso fotos de la cena con timestamp.",
+          "nuevo_estatus": "Coartada verificada en Andares — DESCARTADO"
+        }
+      ]
+    }
+  },
+
+  "evidencias_para_mostrar": [
+    { "id": "msg_borrado_paulina", "nombre": "Mensaje borrado de Paulina (11:13 PM)", "fuente": "Teléfono Renata → WhatsApp → Pau (recuperar)", "tipo": "digital" },
+    { "id": "chat_mateo", "nombre": "Chat romántico con Mateo (NY)", "fuente": "Teléfono Renata → WhatsApp → ❤️ M", "tipo": "digital" },
+    { "id": "audio_disculpa", "nombre": "Audio de Roberto disculpándose", "fuente": "Teléfono Renata → WhatsApp → Roberto V.", "tipo": "digital" },
+    { "id": "msg_amenaza_diego", "nombre": "Mensaje amenaza Diego ('te va a ir mal')", "fuente": "Teléfono Renata → WhatsApp → Diego", "tipo": "digital" },
+    { "id": "cargo_gasolinera", "nombre": "Cargo tarjeta Marcos en gasolinera Tlaquepaque", "fuente": "Pedir reporte bancario a la fiscalía", "tipo": "digital", "auto_obtener": "Después de revisar 3 contactos del teléfono — la fiscalía manda reporte" },
+    { "id": "huellas_botella", "nombre": "Análisis forense: huellas Paulina en botella vino", "fuente": "Escena → Pedir botella → Forense", "tipo": "fisica" },
+    { "id": "video_camaras", "nombre": "Video cámaras 3:42 AM con Mazda Paulina", "fuente": "Escena → Pedir cámaras → Forense", "tipo": "fisica" },
+    { "id": "zolpidem_copa", "nombre": "Análisis copa con zolpidem", "fuente": "Escena → Pedir copa con residuo → Forense", "tipo": "fisica" },
+    { "id": "fibras_cojin", "nombre": "Análisis cojín: fibras + saliva con zolpidem", "fuente": "Escena → Pedir cojín → Forense", "tipo": "fisica" },
+    { "id": "saliva_tapete", "nombre": "Análisis tapete: rastros de saliva víctima", "fuente": "Escena → Pedir tapete → Forense", "tipo": "fisica" }
+  ],
+
+  "solucion": {
+    "culpable_id": "paulina",
+    "motivo_correcto": "celos_amorosos",
+    "metodo_correcto": "envenenamiento_asfixia",
+    "lugar_correcto": "depto_victima",
+    "evidencias_minimas_requeridas": 4,
+    "evidencias_clave_validas": [
+      "zolpidem_copa",
+      "huellas_botella",
+      "video_camaras",
+      "msg_borrado_paulina",
+      "chat_mateo",
+      "fibras_cojin"
+    ]
+  },
+
+  "opciones_informe": {
+    "motivos": [
+      { "id": "celos_amorosos", "texto": "Celos / amor obsesivo no correspondido" },
+      { "id": "dinero", "texto": "Dinero / deuda no pagada" },
+      { "id": "despecho_ex", "texto": "Despecho amoroso (ex pareja)" },
+      { "id": "venganza_laboral", "texto": "Venganza laboral" },
+      { "id": "obsesion_estalker", "texto": "Obsesión / acoso" }
+    ],
+    "metodos": [
+      { "id": "envenenamiento_asfixia", "texto": "Envenenamiento + asfixia" },
+      { "id": "golpes", "texto": "Golpes / arma contundente" },
+      { "id": "estrangulamiento", "texto": "Estrangulamiento" },
+      { "id": "arma_blanca", "texto": "Arma blanca" },
+      { "id": "secuestro_forzado", "texto": "Secuestro con fuerza física" }
+    ],
+    "lugares": [
+      { "id": "depto_victima", "texto": "Departamento de la víctima" },
+      { "id": "escaleras_edificio", "texto": "Escaleras del edificio" },
+      { "id": "estacionamiento", "texto": "Estacionamiento subterráneo" },
+      { "id": "calle_externa", "texto": "Calle, fuera del edificio" },
+      { "id": "lugar_externo", "texto": "Lugar externo (lo movieron antes)" }
+    ]
+  },
+
+  "pistas_fiscalia_si_falla": {
+    "marcos": "Tu sospechoso tiene una coartada secundaria que verificamos. Estuvo con su amante. Pista: revisa los mensajes que Paulina mandó esa noche.",
+    "roberto": "Las cámaras de su casa confirman su coartada. Pista: revisa quién entró al estacionamiento del edificio de la víctima a las 3:42 AM.",
+    "diego": "Cena en Andares confirmada con 7 testigos y fotos con timestamp. Pista: revisa por qué la víctima iba a mudarse y a quién le afectaba MÁS esa noticia.",
+    "esteban": "67 años, cadera operada, no pudo cargar el cuerpo. Pista: lo que él VIO es más útil que lo que hizo. Llámalo de nuevo.",
+    "paulina_motivo_equivocado": "Lo capturamos pero el juez pide motivo claro. Pista: revisa qué le confesó Renata esa noche en el café.",
+    "paulina_evidencia_insuficiente": "Tu acusación es correcta pero faltan pruebas físicas. El abogado defensor la va a sacar. Pista: necesitas mínimo una evidencia forense de la escena.",
+    "default": "Hay algo que no cuadra. Revisa el motivo más fuerte que tendría alguien cercano a Renata esa noche."
+  },
+
+  "epilogo": [
+    "Paulina Treviño fue declarada culpable de homicidio calificado. Sentencia: 35 años.",
+    "El cuerpo de Renata Salgado fue recuperado del jardín de la abuela de Paulina en Tlajomulco, 3 días después de tu presentación del caso.",
+    "Mateo Whitman, el novio de Renata en Nueva York, viajó a GDL para acompañar a Carmen, la madre. Nunca se conocieron en vida.",
+    "Sushi (el gato) fue adoptado por Don Esteban — 'esa niña me regalaba pan dulce, ya cuido a su gatito'.",
+    "Comandante Reyes: 'Detective, hay otro sobre en tu escritorio.'"
+  ]
+}

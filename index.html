@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280">
+  <title>Caso Abierto</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+
+<!-- Overlay decorativo: grano de película (no interfiere con la lógica) -->
+<div class="film-grain" aria-hidden="true"></div>
+
+<!-- ====================================================== -->
+<!-- PANTALLA 1: INICIO — Selección de casos                 -->
+<!-- ====================================================== -->
+<section id="screen-inicio" class="screen active">
+  <header class="hero">
+    <h1>CASO ABIERTO</h1>
+    <p class="subtitle">Agencia de Investigación Privada</p>
+  </header>
+  <div class="contenedor-sobres" id="contenedor-sobres">
+    <!-- Sobres se inyectan por JS -->
+  </div>
+  <footer class="footer-inicio">
+    <button class="btn-link" id="btn-reiniciar-todo">Reiniciar progreso</button>
+  </footer>
+</section>
+
+<!-- ====================================================== -->
+<!-- PANTALLA 2: BRIEFING — Lectura del expediente inicial   -->
+<!-- ====================================================== -->
+<section id="screen-briefing" class="screen">
+  <div class="briefing-container">
+    <button class="btn-volver" data-volver="inicio">← Devolver expediente</button>
+    <div class="expediente-papel" id="expediente-papel">
+      <!-- Se llena por JS -->
+    </div>
+    <div class="briefing-acciones">
+      <button class="btn-principal" id="btn-aceptar-caso">Aceptar caso</button>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- PANTALLA 3: ESCRITORIO — Vista principal del detective  -->
+<!-- ====================================================== -->
+<section id="screen-escritorio" class="screen">
+  <header class="top-bar">
+    <div class="caso-info">
+      <span class="caso-bandera" id="caso-bandera"></span>
+      <span class="caso-titulo" id="caso-titulo"></span>
+    </div>
+    <div class="intentos">
+      Intentos: <span id="intentos-visual">●●●</span>
+    </div>
+    <button class="btn-link" id="btn-salir-escritorio">Salir al menú</button>
+  </header>
+
+  <main class="escritorio">
+    <div class="modulo" data-modulo="expediente">
+      <div class="modulo-icono">📁</div>
+      <div class="modulo-nombre">Expediente</div>
+      <div class="modulo-info" id="badge-expediente"></div>
+    </div>
+
+    <div class="modulo" data-modulo="telefono-victima">
+      <div class="modulo-icono">📱</div>
+      <div class="modulo-nombre">Teléfono víctima</div>
+      <div class="modulo-info" id="badge-telefono-victima">🔒 Bloqueado</div>
+    </div>
+
+    <div class="modulo" data-modulo="tu-telefono">
+      <div class="modulo-icono">📞</div>
+      <div class="modulo-nombre">Mi teléfono</div>
+      <div class="modulo-info">Llamar contactos</div>
+    </div>
+
+    <div class="modulo" data-modulo="escena">
+      <div class="modulo-icono">📸</div>
+      <div class="modulo-nombre">Escena del crimen</div>
+      <div class="modulo-info" id="badge-escena"></div>
+    </div>
+
+    <div class="modulo" data-modulo="libreta">
+      <div class="modulo-icono">📓</div>
+      <div class="modulo-nombre">Libreta</div>
+      <div class="modulo-info">Notas + sospechosos</div>
+    </div>
+
+    <div class="modulo" data-modulo="evidencias">
+      <div class="modulo-icono">📦</div>
+      <div class="modulo-nombre">Evidencia recogida</div>
+      <div class="modulo-info" id="badge-evidencias">0 piezas</div>
+    </div>
+
+    <div class="modulo destacado" data-modulo="informe">
+      <div class="modulo-icono">⚖️</div>
+      <div class="modulo-nombre">Presentar caso</div>
+      <div class="modulo-info">a la fiscalía</div>
+    </div>
+  </main>
+
+  <!-- Notificaciones flotantes (SMS de forense, fiscalía, etc.) -->
+  <div id="notificaciones"></div>
+</section>
+
+<!-- ====================================================== -->
+<!-- PANTALLA 4: VICTORIA / EPÍLOGO                          -->
+<!-- ====================================================== -->
+<section id="screen-epilogo" class="screen">
+  <div class="epilogo-container">
+    <h1 class="epilogo-titulo">CASO CERRADO</h1>
+    <div class="epilogo-cards" id="epilogo-cards"></div>
+    <button class="btn-principal" id="btn-volver-menu">Regresar al menú</button>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- PANTALLA 5: DERROTA                                     -->
+<!-- ====================================================== -->
+<section id="screen-derrota" class="screen">
+  <div class="derrota-container">
+    <h1 class="derrota-titulo">CASO PERDIDO</h1>
+    <p class="derrota-texto">
+      Detective, agotó sus tres intentos. La fiscalía ha tomado el caso de sus manos.
+    </p>
+    <p class="derrota-subtexto">
+      El verdadero culpable era: <strong id="culpable-revelado"></strong>
+    </p>
+    <div class="derrota-acciones">
+      <button class="btn-principal" id="btn-reintentar-caso">Reabrir caso</button>
+      <button class="btn-link" id="btn-derrota-menu">Regresar al menú</button>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- MODALES                                                  -->
+<!-- ====================================================== -->
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal-container" id="modal-container">
+    <button class="modal-cerrar" id="modal-cerrar">✕</button>
+    <div class="modal-contenido" id="modal-contenido">
+      <!-- Contenido inyectado por JS según módulo -->
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- TOAST de mensajes cortos                                 -->
+<!-- ====================================================== -->
+<div id="toast"></div>
+
+<!-- Scripts -->
+<script src="js/motor.js"></script>
+<script src="js/telefono.js"></script>
+<script src="js/llamadas.js"></script>
+<script src="js/escena.js"></script>
+<script src="js/libreta.js"></script>
+<script src="js/informe.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    Motor.init();
+  });
+</script>
+
+</body>
+</html>
