@@ -155,7 +155,22 @@ const Escena = (() => {
       return;
     }
 
-    // Objeto único
+    // 1. Buscar muestra ADN del Caso 2 que matchea
+    const adn = Motor.state.casoActual.adn_avanzado?.muestras_disponibles?.find(m => m.requiere_recoger === punto.id);
+    if (adn) {
+      Motor.agregarObjetoRecogido(punto.id, punto.nombre, `Escena → ${punto.nombre}`, null);
+      Motor.programarSMSForense('Laboratorio ADN', adn.resultado, 2);
+      setTimeout(() => {
+        const obj = Motor.state.objetosRecogidos.find(o => o.id === punto.id);
+        if (obj) { obj.analisis = adn.resultado; Motor.guardar(); }
+      }, 100);
+      if (adn.evidencia_desbloquea) Motor.agregarEvidencia(adn.evidencia_desbloquea);
+      Motor.toast('Solicitud enviada. Análisis ADN en camino.');
+      render();
+      return;
+    }
+
+    // 2. Sistema viejo del Caso 1 (hardcoded por ID)
     const analisisKey = (() => {
       if (punto.id === 'p2') return 'cojin';
       if (punto.id === 'p6') return 'mancha_tapete';
@@ -165,7 +180,7 @@ const Escena = (() => {
       return null;
     })();
 
-    const a = analisisKey ? Motor.state.casoActual.analisis_forenses[analisisKey] : null;
+    const a = analisisKey ? Motor.state.casoActual.analisis_forenses?.[analisisKey] : null;
     Motor.agregarObjetoRecogido(punto.id, punto.nombre, `Escena → ${punto.nombre}`, null);
     if (a) {
       Motor.programarSMSForense(a.de, a.texto, 2);

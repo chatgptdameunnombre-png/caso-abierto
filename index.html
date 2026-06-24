@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=1280">
   <title>Caso Abierto</title>
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/extras.css">
 </head>
 <body>
 
@@ -57,49 +58,8 @@
     <button class="btn-link" id="btn-salir-escritorio">Salir al menú</button>
   </header>
 
-  <main class="escritorio">
-    <div class="modulo" data-modulo="expediente">
-      <div class="modulo-icono">📁</div>
-      <div class="modulo-nombre">Expediente</div>
-      <div class="modulo-info" id="badge-expediente"></div>
-    </div>
-
-    <div class="modulo" data-modulo="telefono-victima">
-      <div class="modulo-icono">📱</div>
-      <div class="modulo-nombre">Teléfono víctima</div>
-      <div class="modulo-info" id="badge-telefono-victima">🔒 Bloqueado</div>
-    </div>
-
-    <div class="modulo" data-modulo="tu-telefono">
-      <div class="modulo-icono">📞</div>
-      <div class="modulo-nombre">Mi teléfono</div>
-      <div class="modulo-info">Llamar contactos</div>
-    </div>
-
-    <div class="modulo" data-modulo="escena">
-      <div class="modulo-icono">📸</div>
-      <div class="modulo-nombre">Escena del crimen</div>
-      <div class="modulo-info" id="badge-escena"></div>
-    </div>
-
-    <div class="modulo" data-modulo="libreta">
-      <div class="modulo-icono">📓</div>
-      <div class="modulo-nombre">Libreta</div>
-      <div class="modulo-info">Notas + sospechosos</div>
-    </div>
-
-    <div class="modulo" data-modulo="evidencias">
-      <div class="modulo-icono">📦</div>
-      <div class="modulo-nombre">Evidencia recogida</div>
-      <div class="modulo-info" id="badge-evidencias">0 piezas</div>
-    </div>
-
-    <div class="modulo destacado" data-modulo="informe">
-      <div class="modulo-icono">⚖️</div>
-      <div class="modulo-nombre">Presentar caso</div>
-      <div class="modulo-info">a la fiscalía</div>
-    </div>
-  </main>
+  <!-- Los módulos se inyectan dinámicamente según el caso (Motor.renderModulos) -->
+  <main class="escritorio"></main>
 
   <!-- Notificaciones flotantes (SMS de forense, fiscalía, etc.) -->
   <div id="notificaciones"></div>
@@ -155,8 +115,13 @@
 <!-- Scripts -->
 <script src="js/motor.js"></script>
 <script src="js/telefono.js"></script>
+<script src="js/computadora.js"></script>
 <script src="js/llamadas.js"></script>
 <script src="js/escena.js"></script>
+<script src="js/camaras.js"></script>
+<script src="js/banco.js"></script>
+<script src="js/gps.js"></script>
+<script src="js/caja-fuerte.js"></script>
 <script src="js/libreta.js"></script>
 <script src="js/informe.js"></script>
 <script>

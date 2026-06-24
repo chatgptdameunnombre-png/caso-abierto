@@ -1,0 +1,734 @@
+{
+  "id": "caso-2",
+  "titulo": "El padre que no estaba",
+  "ubicacion": "Austin, Texas · USA",
+  "bandera": "🇺🇸",
+  "fecha_caso": "18 de marzo, 2026",
+  "estado": "ABIERTO",
+  "dificultad": "ALTA",
+  "duracion_estimada": "2-4 horas",
+  "sobre_resumen": "Niño de 8 años desaparece de su escuela. Su padre divorciado lo 'recogió' pero nunca apareció. Sangre en el carro. Quedan 12 horas.",
+
+  "modulos_disponibles": [
+    "expediente",
+    "telefono-victima",
+    "computadora",
+    "tu-telefono",
+    "escena",
+    "camaras",
+    "banco",
+    "gps",
+    "caja-fuerte",
+    "libreta",
+    "evidencias",
+    "informe"
+  ],
+
+  "victima": {
+    "nombre": "Ethan Cole",
+    "edad": 8,
+    "ocupacion": "Estudiante de segundo grado, Westwood Elementary",
+    "estado_civil": "Hijo de Sarah Henderson (madre) y David Cole (padre)",
+    "direccion": "412 Bluebonnet Trail, West Lake Hills, Austin TX",
+    "instagram": "—",
+    "foto": "img/c2-ethan.jpg",
+    "descripcion_publica": "Niño tímido, brillante, obsesionado con dinosaurios. ADD leve, medicado. Vive con su madre y padrastro."
+  },
+
+  "victima_secundaria": {
+    "nombre": "David Cole",
+    "edad": 38,
+    "ocupacion": "Ingeniero senior de software, Texas Instruments",
+    "relacion": "Padre biológico de Ethan. Divorciado de Sarah hace 3 años. Custodia los fines de semana.",
+    "foto": "img/c2-david.jpg",
+    "nota": "APD lo trata como sospechoso. El detective debe descubrir que también es víctima."
+  },
+
+  "briefing": {
+    "titulo": "CASE FILE 2026-118 — CHILD ABDUCTION",
+    "subtitulo": "Austin Police Department · Major Crimes Division",
+    "hechos": [
+      "Martes 18 marzo 2026, 2:45 PM: un hombre que coincide con la descripción física de David Cole se presenta en Westwood Elementary y firma la salida de su hijo Ethan usando credenciales legítimas de custodia.",
+      "La madre Sarah Henderson llega para el pickup normal a las 3:30 PM y descubre que Ethan ya fue retirado. David Cole NO estaba programado para recogerlo ese día por el acuerdo de custodia.",
+      "El carro de David Cole (Subaru Outback 2022, placas TX-LMC-4413) fue encontrado abandonado a las 8:14 PM en una gasolinera Buc-ee's en Round Rock, 18 millas al norte de la escuela.",
+      "Sangre visible en el asiento del copiloto. Cartera, teléfono y laptop de David estaban dentro del vehículo.",
+      "Su teléfono está apagado. Última señal a las 3:02 PM cerca de Riverside Dr.",
+      "Ni David ni Ethan han sido localizados. 36 horas transcurridas."
+    ],
+    "ultima_actividad": [
+      { "hora": "Lun 17 mar 6:00 PM", "evento": "David sale de su oficina en TI (última selfie en su teléfono)" },
+      { "hora": "Lun 17 mar 10:48 PM", "evento": "David llama a su padre Frank: 'alguien rondando afuera, te llamo en 10' (Frank lo reporta a APD pero nadie le hace caso)" },
+      { "hora": "Mar 18 mar 2:45 PM", "evento": "Persona disfrazada como David recoge a Ethan en Westwood Elementary" },
+      { "hora": "Mar 18 mar 3:02 PM", "evento": "Última señal del teléfono de David cerca de Riverside Dr" },
+      { "hora": "Mar 18 mar 5:14 PM", "evento": "Subaru de David visto en cámaras de Buc-ee's Round Rock; persona limpia el asiento y se cambia a Tesla blanco" },
+      { "hora": "Mar 18 mar 8:14 PM", "evento": "APD encuentra el Subaru abandonado en Buc-ee's" }
+    ],
+    "observaciones": "APD trata a David Cole como SOSPECHOSO PRIMARIO (sospecha de secuestro de custodia que se tornó violento). El detective debe construir la verdad real.",
+    "nota_jefe": "Detective, tu trabajo es encontrar a Ethan VIVO. APD está cazando a David pero el caso tiene huecos — la sangre, el carro abandonado, los tiempos. Algo apesta. La madre histérica, el padrastro cooperador, el FBI llega en 36 hrs a quitarnos el caso. Construye la verdad a partir de lo que NO te están diciendo. — Capt. Reeves"
+  },
+
+  "sospechosos": [
+    {
+      "id": "sarah",
+      "nombre": "Sarah Henderson (de soltera Mitchell)",
+      "edad": 36,
+      "ocupacion": "Agente de bienes raíces, Keller Williams",
+      "relacion": "Madre de Ethan. Re-casada con Brad Henderson hace 18 meses. Ex de David Cole.",
+      "vive_en": "West Lake Hills, casa de $1.4M",
+      "motivo_aparente": "Conflicto de custodia con David (que quería extender visitas)",
+      "coartada_inicial": "Mostrando casas a clientes de 1-4 PM y 4:30-6 PM",
+      "telefono": "(512) 555-2287",
+      "foto": "img/c2-sarah.jpg"
+    },
+    {
+      "id": "brad",
+      "nombre": "Brad Henderson",
+      "edad": 42,
+      "ocupacion": "Gerente regional, Aetna Insurance",
+      "relacion": "Padrastro de Ethan. Esposo actual de Sarah (hace 18 meses).",
+      "vive_en": "Misma casa que Sarah y Ethan",
+      "motivo_aparente": "Ninguno aparente — 'ama a Ethan como propio'",
+      "coartada_inicial": "Reunión corporativa todo el día en oficina downtown (11 testigos)",
+      "telefono": "(512) 555-3399",
+      "foto": "img/c2-brad.jpg"
+    },
+    {
+      "id": "lauren",
+      "nombre": "Lauren Murphy",
+      "edad": 35,
+      "ocupacion": "Personal trainer en Pure Barre Austin",
+      "relacion": "Mejor amiga de Sarah. 'Tía' adoptiva de Ethan, lo recoge frecuentemente.",
+      "vive_en": "South Congress (sola, soltera)",
+      "motivo_aparente": "Ninguno obvio — parte de la familia",
+      "coartada_inicial": "Cliente de entrenamiento 1-2 PM, después 'comí sola e hice errands'",
+      "telefono": "(512) 555-7711",
+      "foto": "img/c2-lauren.jpg"
+    },
+    {
+      "id": "thompson",
+      "nombre": "Mrs. Elaine Thompson",
+      "edad": 58,
+      "ocupacion": "Maestra de segundo grado, Westwood Elementary",
+      "relacion": "Maestra de Ethan hace 2 años",
+      "vive_en": "Cerca de la escuela",
+      "motivo_aparente": "Negligencia (¿cómo dejó que se lo llevaran?)",
+      "coartada_inicial": "Estaba con sus 22 alumnos en el salón a esa hora",
+      "telefono": "(512) 555-8855",
+      "foto": "img/c2-thompson.jpg"
+    },
+    {
+      "id": "frank",
+      "nombre": "Frank Cole",
+      "edad": 71,
+      "ocupacion": "Maestro retirado de High School. Viudo.",
+      "relacion": "Abuelo paterno (papá de David)",
+      "vive_en": "Cedar Park (solo)",
+      "motivo_aparente": "Ninguno — la familia que ama a Ethan",
+      "coartada_inicial": "En casa, sin testigos. 'Vi noticias todo el día.'",
+      "telefono": "(512) 555-1066",
+      "foto": "img/c2-frank.jpg"
+    },
+    {
+      "id": "carlos",
+      "nombre": "Carlos Mendez",
+      "edad": 40,
+      "ocupacion": "Ingeniero, ex co-fundador de startup con David",
+      "relacion": "Ex socio de David (cerraron empresa hace 14 meses con disputa)",
+      "vive_en": "Pflugerville (casado, 2 hijos)",
+      "motivo_aparente": "Disputa legal por software no resuelta",
+      "coartada_inicial": "Trabajando desde casa, video calls grabadas",
+      "telefono": "(512) 555-4422",
+      "foto": "img/c2-carlos.jpg"
+    },
+    {
+      "id": "jenny",
+      "nombre": "Jenny Park",
+      "edad": 24,
+      "ocupacion": "Estudiante UT Austin (Psicología). Niñera regular.",
+      "relacion": "Cuida a Ethan 3 días por semana después de la escuela",
+      "vive_en": "West Campus",
+      "motivo_aparente": "Acceso al niño + deudas estudiantiles",
+      "coartada_inicial": "En clase Behavioral Neuroscience 2-3:15 PM (catedrático + 30 alumnos)",
+      "telefono": "(512) 555-9090",
+      "foto": "img/c2-jenny.jpg"
+    }
+  ],
+
+  "telefono_victima": {
+    "modelo": "iPhone de David Cole",
+    "pin": "0814",
+    "pista_pin": "El PIN es la fecha de cumpleaños de Ethan (mes-día). Está en una foto de su pastel de cumpleaños número 8.",
+    "apps": {
+      "whatsapp": {
+        "nombre": "WhatsApp",
+        "icono": "💬",
+        "chats": [
+          {
+            "id": "ethan",
+            "nombre": "Ethan 🦖",
+            "ultima_hora": "Lun 7:30 PM",
+            "mensajes": [
+              { "de": "ethan", "hora": "Lun 7:25 PM", "texto": "papi mira mi dibujo de un T-rex 🦖" },
+              { "de": "david", "hora": "Lun 7:28 PM", "texto": "Espectacular campeón! Nos vemos el sábado ✊" },
+              { "de": "ethan", "hora": "Lun 7:30 PM", "texto": "te amo papi" }
+            ]
+          },
+          {
+            "id": "frank",
+            "nombre": "Papá 🌵",
+            "ultima_hora": "Lun 10:48 PM",
+            "mensajes": [
+              { "de": "frank", "hora": "Lun 9:00 PM", "texto": "Hijo cómo va el trabajo? Te llamo mañana." },
+              { "de": "david", "hora": "Lun 10:48 PM", "texto": "Papá, alguien está rondando afuera de mi depto. Llevo viendo el mismo carro 3 noches. Te llamo en 10 min cuando esté en sitio seguro." }
+            ]
+          },
+          {
+            "id": "carlos",
+            "nombre": "Carlos M.",
+            "ultima_hora": "Vie 14 mar 4:00 PM",
+            "mensajes": [
+              { "de": "david", "hora": "5 mar 11:00 AM", "texto": "Carlos, necesito $80K prestados. Es importante. Te explico cuando podamos vernos." },
+              { "de": "carlos", "hora": "5 mar 1:30 PM", "texto": "Hecho. Está depositado. Hablamos cuando puedas." },
+              { "de": "david", "hora": "Vie 14 mar 4:00 PM", "texto": "Te mandé algo importante por email. Léelo." }
+            ]
+          },
+          {
+            "id": "lauren",
+            "nombre": "L. Murphy",
+            "ultima_hora": "Lun 5:34 PM",
+            "mensajes": [
+              { "de": "lauren", "hora": "10 feb 7:00 PM", "texto": "Hey David, podemos vernos? Algo urgente sobre Sarah y Brad. Vida personal, no laboral." },
+              { "de": "david", "hora": "10 feb 8:00 PM", "texto": "Ok. Dónde y cuándo." },
+              { "de": "lauren", "hora": "Lun 5:34 PM", "texto": "Te paso la dirección. South Lamar 4488, apt 3. Lunes 10 PM. Ven solo, por favor. Es por Ethan." }
+            ]
+          }
+        ]
+      },
+      "galeria": {
+        "nombre": "Fotos",
+        "icono": "🖼️",
+        "fotos": [
+          { "id": "g1", "thumbnail": "img/c2-foto-pastel.jpg", "descripcion": "Pastel de cumpleaños 8 de Ethan. El '8' grande. Fecha visible en el calendario al fondo: 14 agosto.", "fecha": "14 ago 2025", "ubicacion": "Casa Cole" },
+          { "id": "g2", "thumbnail": "img/c2-foto-testamento.jpg", "descripcion": "Testamento abierto sobre escritorio de David. Visible: 'beneficiario único: Ethan Cole. Custodio en caso de muerte: Frank Cole (abuelo paterno).' Fecha: 3 mar 2026.", "fecha": "3 mar 2026", "ubicacion": "Oficina David" },
+          { "id": "g3", "thumbnail": "img/c2-foto-selfie.jpg", "descripcion": "Selfie de David en su cubículo de TI. Reloj de pared: 6:02 PM. Lunes. Última foto.", "fecha": "Lun 17 mar 6:02 PM", "ubicacion": "Oficina TI" },
+          { "id": "g4", "thumbnail": "img/c2-foto-cabaña.jpg", "descripcion": "Cabaña rústica entre árboles. Caption mental: 'viaje grupal Spicewood 2024'. La cabaña de la tía de Lauren.", "fecha": "12 jul 2024", "ubicacion": "Spicewood, TX" },
+          { "id": "g5", "thumbnail": "img/c2-foto-poliza.jpg", "descripcion": "Captura de pantalla: póliza Aetna #AET-4288. Beneficiario: Brad Henderson (custodio). Vida asegurada: Ethan Cole. Suma: $4,200,000 USD.", "fecha": "1 mar 2026", "ubicacion": "—" }
+        ]
+      },
+      "llamadas": {
+        "nombre": "Llamadas",
+        "icono": "📞",
+        "registro": [
+          { "contacto": "Papá (Frank)", "tipo": "saliente", "fecha": "Lun 10:48 PM", "duracion": "0:14" },
+          { "contacto": "L. Murphy", "tipo": "entrante", "fecha": "Lun 9:30 PM", "duracion": "1:42" },
+          { "contacto": "Carlos M.", "tipo": "saliente", "fecha": "Dom 16 mar 8 PM", "duracion": "12:30" },
+          { "contacto": "Aetna Customer Service", "tipo": "saliente", "fecha": "Sáb 15 mar 2 PM", "duracion": "23:14" },
+          { "contacto": "Ethan 🦖", "tipo": "entrante", "fecha": "Lun 7:25 PM", "duracion": "3:21" }
+        ]
+      },
+      "notas": {
+        "nombre": "Notas",
+        "icono": "📝",
+        "lista": [
+          { "titulo": "Cosas raras Brad", "fecha": "1 mar", "texto": "- Póliza Aetna $4.2M a nombre de Ethan, beneficiario BRAD\n- ¿Cuándo se contrató? Hace 8 meses\n- ¿Sarah sabe? NO le mencionar todavía\n- Hablar con abogado MIÉRCOLES" },
+          { "titulo": "FBI denuncia", "fecha": "10 mar", "texto": "Llamar oficina FBI Austin: (512) 555-FBI-1\nAgente Williams\nCita el miércoles 11 AM\nLLEVAR: copia póliza + capturas chats Brad-Lauren" },
+          { "titulo": "Si algo me pasa", "fecha": "12 mar", "texto": "Carpeta EVIDENCIA-BRAD en Drive.\nPassword laptop: Ethan2018!\nCustodio testamento: papá.\nQUE ETHAN ESTÉ A SALVO ANTES QUE NADA." }
+        ]
+      },
+      "correo": {
+        "nombre": "Correo",
+        "icono": "📧",
+        "lista": [
+          { "de": "Aetna Insurance", "asunto": "Confirmación de solicitud de detalles de póliza #AET-4288", "fecha": "Vie 14 mar", "preview": "Estimado Sr. Cole, confirmamos su solicitud de información sobre la póliza #AET-4288 (Vida — Ethan Cole, $4.2M, beneficiario Brad Henderson). Los documentos serán enviados..." },
+          { "de": "Carlos Mendez", "asunto": "Recibido — testamento adjunto", "fecha": "Vie 14 mar", "preview": "David, recibido. Guardo el testamento. Cuídate hermano. Si necesitas algo más avísame." },
+          { "de": "David Cole", "asunto": "PARA MÍ: si algo me pasa", "fecha": "12 mar", "preview": "Si están leyendo esto y no estoy: investiguen a Brad Henderson y la póliza Aetna #AET-4288 a nombre de mi hijo. Hablen con FBI Austin, agente Williams. — D" },
+          { "de": "Lauren Murphy", "asunto": "dirección lunes", "fecha": "Lun 17 mar", "preview": "Te mando la dirección. South Lamar 4488, apt 3. Ven solo. Es importante. Te explico ahí." }
+        ]
+      }
+    }
+  },
+
+  "computadora_padre": {
+    "modelo": "MacBook Pro de David Cole",
+    "password": "Ethan2018!",
+    "pista_password": "Las notas de David mencionan 'password laptop: Ethan2018!'",
+    "apps": {
+      "gmail": {
+        "nombre": "Gmail",
+        "icono": "✉️",
+        "lista": [
+          { "de": "Aetna Claims", "asunto": "Fwd: Póliza Vida #AET-4288 — Beneficiario Designado", "fecha": "Vie 14 mar", "preview": "Adjuntamos copia completa de la póliza. Beneficiario actual: BRAD HENDERSON (relación: stepfather/custodian). Fecha contratación: 18 julio 2025. Prima mensual: $1,840." },
+          { "de": "FBI Austin Field Office", "asunto": "Re: cita programada agente Williams", "fecha": "12 mar", "preview": "Confirmado: miércoles 19 mar 11 AM. Por favor traiga documentación física." },
+          { "de": "Lawyer (Karen Reston)", "asunto": "Testamento actualizado — borrador final", "fecha": "1 mar", "preview": "David, adjunto el draft del testamento con los cambios solicitados. Beneficiario único: Ethan. Custodio en caso de tu muerte: Frank Cole (NO Sarah, NO Brad)." }
+        ]
+      },
+      "drive": {
+        "nombre": "Drive",
+        "icono": "📂",
+        "carpetas": [
+          {
+            "nombre": "EVIDENCIA-BRAD",
+            "archivos": [
+              "Poliza-Aetna-AET4288.pdf",
+              "screenshots-WA-BradLauren.zip (Brad y Lauren mensajeándose, 3 meses de chats robados de la nube)",
+              "recibos-hoteles-Austin-Brad-Lauren.pdf (4 hoteles boutique, 18 meses)",
+              "fotos-encuentros-secretos.zip (David los siguió 4 veces y los fotografió)",
+              "draft-denuncia-FBI.docx"
+            ]
+          }
+        ]
+      },
+      "chrome": {
+        "nombre": "Chrome (historial)",
+        "icono": "🌐",
+        "busquedas_recientes": [
+          "póliza vida menor de edad beneficiario derechos",
+          "Aetna fraude denuncia FBI Texas",
+          "abogado familia custodia menor Austin",
+          "qué pasa si beneficiario asesina al asegurado",
+          "agente FBI Williams Austin contacto",
+          "como proteger a mi hijo legalmente"
+        ]
+      },
+      "slack": {
+        "nombre": "Slack (TI laboral)",
+        "icono": "💼",
+        "mensajes": [
+          { "de": "David Cole → Equipo Eng", "fecha": "Vie 14 mar", "texto": "Hola team, voy a tomar la próxima semana off. Asunto familiar serio. Recursos Humanos ya autorizado." },
+          { "de": "Sarah (compañera de equipo)", "fecha": "Vie 14 mar", "texto": "Todo bien David? Avísanos si necesitas algo" },
+          { "de": "David Cole", "fecha": "Vie 14 mar", "texto": "Gracias. Estaré disponible por mensaje si urgente." }
+        ]
+      }
+    }
+  },
+
+  "escena_crimen": {
+    "ubicacion": "Buc-ee's Gas Station, Round Rock, TX (carro Subaru abandonado)",
+    "hora_revision": "19 mar 9:00 AM",
+    "imagen": "img/c2-escena.jpg",
+    "descripcion_general": "Subaru Outback negro estacionado al fondo del estacionamiento de Buc-ee's, cubierto de polvo. Puertas cerradas. Sangre visible en asiento del copiloto. Pertenencias dentro.",
+    "puntos": [
+      { "id": "p1", "nombre": "Asiento copiloto: mancha grande de sangre", "x": 50, "y": 45, "zoom_descripcion": "Mancha roja oscura, ya seca. Cantidad considerable. Olor metálico.", "es_clave": true, "puede_recoger": true, "auto_nota": "Sangre considerable en asiento copiloto del Subaru. Pedir análisis." },
+      { "id": "p2", "nombre": "Volante: cabello largo enredado", "x": 30, "y": 40, "zoom_descripcion": "Un cabello rubio largo (~20 cm) enredado en el volante. David tenía pelo castaño corto.", "es_clave": true, "puede_recoger": true, "auto_nota": "Cabello rubio largo en el volante. David no tenía ese pelo." },
+      { "id": "p3", "nombre": "Asiento trasero: laptop bag", "x": 70, "y": 50, "zoom_descripcion": "Laptop bag de David con su MacBook adentro, encendida pero dormida. La cartera y teléfono al lado.", "es_clave": true, "puede_recoger": true, "es_camaras": false, "auto_nota": "Laptop, cartera y teléfono de David dentro del carro. Demasiado obvio para ser un secuestro de custodia." },
+      { "id": "p4", "nombre": "Piso del copiloto: colilla de cigarrillo", "x": 55, "y": 75, "zoom_descripcion": "Colilla de Marlboro Lights. David no fumaba según familia.", "es_clave": true, "puede_recoger": true, "auto_nota": "Colilla en el piso. David no fumaba. ADN posible." },
+      { "id": "p5", "nombre": "Guantera abierta", "x": 60, "y": 60, "zoom_descripcion": "Guantera abierta. Documentos del carro intactos. Una tarjeta de visita: 'Lauren Murphy — Pure Barre Austin'.", "es_clave": false, "auto_nota": "Tarjeta de Lauren Murphy en la guantera." },
+      { "id": "p6", "nombre": "Asiento trasero: mochila escolar", "x": 80, "y": 70, "zoom_descripcion": "Mochila de Ethan con su nombre bordado. Cuaderno de tareas, dinosaurios de plástico. Sin señales de violencia.", "es_clave": false, "auto_nota": "Mochila de Ethan adentro. La mochila SÍ entró al carro. Ethan estuvo aquí." },
+      { "id": "p7", "nombre": "Cajuela: alfombrilla manchada", "x": 90, "y": 30, "zoom_descripcion": "Una alfombrilla doblada con manchas oscuras. ¿Para envolver algo grande?", "es_clave": true, "puede_recoger": true, "auto_nota": "Alfombrilla manchada en la cajuela. Algo se transportó envuelto." }
+    ],
+    "max_solicitudes_policia": 4
+  },
+
+  "camaras_seguridad": {
+    "nombre": "Cámaras de Seguridad",
+    "icono": "📹",
+    "clips": [
+      {
+        "id": "cam-escuela",
+        "titulo": "Westwood Elementary — Pasillo 2",
+        "hora": "Mar 18 mar 2:38-2:50 PM",
+        "duracion": "12 segundos",
+        "descripcion": "Hombre con sudadera UT Longhorns + gafas aviador entra por puerta lateral. Sale 2 min después con Ethan de la mano.",
+        "detalles_ocultos": [
+          "El paso del hombre es MÁS CORTO que el de David (David medía 1.85m, este parece 1.65m).",
+          "Levanta a Ethan con esfuerzo (David lo cargaba sin problema en otros videos).",
+          "Ethan parece confundido. Mira al hombre dos veces como verificando."
+        ],
+        "evidencia_desbloquea": "video_escuela"
+      },
+      {
+        "id": "cam-buccees",
+        "titulo": "Buc-ee's Round Rock — Estacionamiento trasero",
+        "hora": "Mar 18 mar 5:14 PM",
+        "duracion": "45 segundos",
+        "descripcion": "Subaru de David entra. Persona con sudadera UT y peluca baja. Limpia rápido asiento copiloto con toalla. Camina al fondo donde la espera un Tesla blanco. Se sube y se va.",
+        "detalles_ocultos": [
+          "Zoom al Tesla blanco: placas TX-HND-3315 = Brad Henderson.",
+          "La 'persona' se quita la peluca al subir al Tesla. Cabello rubio largo aparece.",
+          "Ethan NO aparece en este video — debe haber sido transferido antes."
+        ],
+        "evidencia_desbloquea": "video_buccees"
+      },
+      {
+        "id": "cam-trafico",
+        "titulo": "Cámara de tráfico — Carretera a Pace Bend",
+        "hora": "Mar 18 mar 6:30 PM",
+        "duracion": "8 segundos",
+        "descripcion": "Tesla blanco TX-HND-3315 pasa rumbo a zona rural Spicewood.",
+        "detalles_ocultos": [
+          "Conductora claramente visible: mujer rubia, cabello largo.",
+          "Análisis facial: 92% match con LAUREN MURPHY.",
+          "Hay alguien acostado o doblado en el asiento trasero. Posible Ethan."
+        ],
+        "evidencia_desbloquea": "video_trafico"
+      },
+      {
+        "id": "cam-casa",
+        "titulo": "Casa Cole (Henderson) — Cámara timbre",
+        "hora": "Mar 18 mar 9:00 AM (timestamp original) — REVISAR",
+        "duracion": "20 segundos",
+        "descripcion": "Aparenta mostrar a David al frente del jardín 'martes 9 AM'. Pero algo no cuadra.",
+        "detalles_ocultos": [
+          "El reloj de la cámara está descalibrado por 12 hrs (problema reportado en config del fabricante).",
+          "Lo que se ve realmente es del LUNES 9 PM, no del MARTES 9 AM.",
+          "David fue a su propia casa el lunes en la noche, no el martes.",
+          "Esto comprueba que David ya estaba muerto el martes (no pudo recoger a Ethan)."
+        ],
+        "evidencia_desbloquea": "video_casa"
+      }
+    ]
+  },
+
+  "reporte_bancario": {
+    "nombre": "Reporte Bancario",
+    "icono": "🏦",
+    "introduccion": "Solicitaste a la fiscalía los estados de cuenta de los 7 sospechosos. APD te los autoriza después de mostrar evidencia de irregularidades.",
+    "cuentas": [
+      {
+        "titular": "David Cole",
+        "resumen": "Cuenta normal, salario estable de TI. Retiro de $80K hace 2 semanas (corresponde al préstamo de Carlos). Lunes 5 PM: cargo en Buc-ee's $42 (David fue real). Sin movimientos sospechosos."
+      },
+      {
+        "titular": "Brad Henderson",
+        "resumen": "🚩 Cuenta familiar con Sarah. HACE 6 MESES: transferencia salida de $50,000 a 'JM Holdings LLC' (empresa fantasma sin actividad real). 🚩 Cargos en hoteles boutique South Austin cada 2 semanas por 18 meses (siempre miércoles). 🚩 ABRIÓ cuenta off-shore en Caimán hace 3 SEMANAS (registrada como individual, no familiar).",
+        "evidencia_desbloquea": "banco_brad"
+      },
+      {
+        "titular": "Lauren Murphy",
+        "resumen": "Salario modesto Pure Barre. 🚩 Cuenta secundaria 'Lauren M. Murphy DBA Studio' recibe $5K-$10K mensuales en transferencias que vienen de... 'JM Holdings LLC' (la misma de Brad). 🚩 Compra Amazon martes 14 mar: peluca castaña corta + sudadera UT Longhorns + gafas aviador. 🚩 Rentó Airbnb South Lamar 4488 con tarjeta prepagada PURCHASED CON CASH.",
+        "evidencia_desbloquea": "banco_lauren"
+      },
+      {
+        "titular": "Carlos Mendez",
+        "resumen": "Cuenta normal. El préstamo a David fue legítimo, ya empezó a recibirlo de vuelta. Sin movimientos raros."
+      },
+      {
+        "titular": "Sarah Henderson",
+        "resumen": "Cuentas limpias. Salario inmobiliario regular."
+      },
+      {
+        "titular": "Frank Cole",
+        "resumen": "Cuentas limpias. Jubilación tranquila."
+      },
+      {
+        "titular": "Jenny Park",
+        "resumen": "Cuentas con deudas estudiantiles altas pero sin entradas extrañas."
+      },
+      {
+        "titular": "Mrs. Elaine Thompson",
+        "resumen": "Cuentas limpias de maestra. Sin nada."
+      }
+    ]
+  },
+
+  "gps_carro": {
+    "nombre": "GPS del Subaru de David",
+    "icono": "📍",
+    "introduccion": "Datos GPS de los últimos 7 días extraídos del módulo telemático del Subaru. Mapa simplificado a continuación.",
+    "rutas": [
+      { "fecha": "Lun-Vie 10-14 mar", "ruta": "Movimientos normales: casa → oficina TI → gym → casa. Sin paradas raras." },
+      { "fecha": "Sáb 15 mar 10 AM", "ruta": "Casa David → Casa Frank (visita rutina) → almuerzo San Marcos → regreso casa." },
+      { "fecha": "Dom 16 mar 6 PM", "ruta": "Casa → oficina abogada Karen Reston → casa." },
+      { "fecha": "Lun 17 mar 6:00 PM", "ruta": "Oficina TI → casa." },
+      { "fecha": "Lun 17 mar 8:45 PM", "ruta": "🚩 Casa David → South Lamar 4488 (40 min de estancia)" },
+      { "fecha": "Lun 17 mar 10:30 PM", "ruta": "🚩 South Lamar 4488 → Spicewood / Pace Bend Park (2 horas, ruta sinuosa rural)" },
+      { "fecha": "Lun 17 mar 2:14 AM", "ruta": "🚩 Spicewood → zona industrial Este Austin (parada 30 min) → casa David" },
+      { "fecha": "Mar 18 mar 2:30 PM", "ruta": "🚩 Casa David → Westwood Elementary → Buc-ee's Round Rock (carro abandonado 5:14 PM)" }
+    ],
+    "evidencia_desbloquea": "gps_carro"
+  },
+
+  "adn_avanzado": {
+    "nombre": "Análisis ADN Forense",
+    "icono": "🔬",
+    "introduccion": "Solicitudes de análisis ADN al laboratorio. Cada solicitud tarda en regresar (gasta acciones).",
+    "muestras_disponibles": [
+      {
+        "id": "adn_sangre_carro",
+        "fuente": "Sangre del asiento copiloto del Subaru",
+        "requiere_recoger": "p1",
+        "resultado": "🚩 NO HUMANA. Especie: PORCINO. Provenientes de carnicería comercial. Coincide con Lone Star Butcher Shop, Spicewood TX (compra registrada lunes 17 mar 11 AM con tarjeta de Lauren Murphy).",
+        "evidencia_desbloquea": "adn_sangre"
+      },
+      {
+        "id": "adn_cabello_volante",
+        "fuente": "Cabello rubio del volante",
+        "requiere_recoger": "p2",
+        "resultado": "🚩 Match: LAUREN MURPHY (cabello propio, no peluca). Lauren conducía el Subaru en algún momento.",
+        "evidencia_desbloquea": "adn_cabello"
+      },
+      {
+        "id": "adn_colilla",
+        "fuente": "Colilla de cigarrillo del piso copiloto",
+        "requiere_recoger": "p4",
+        "resultado": "🚩 Saliva: BRAD HENDERSON. Brad estuvo en el carro en algún momento (Brad NO fumaba en público — fumaba a escondidas en Airbnb).",
+        "evidencia_desbloquea": "adn_brad"
+      },
+      {
+        "id": "adn_alfombrilla",
+        "fuente": "Alfombrilla manchada de la cajuela",
+        "requiere_recoger": "p7",
+        "resultado": "🚩 Sangre HUMANA. Match: DAVID COLE. El cuerpo de David fue transportado en la cajuela del Subaru.",
+        "evidencia_desbloquea": "adn_david"
+      }
+    ]
+  },
+
+  "caja_fuerte": {
+    "nombre": "Caja fuerte de David",
+    "icono": "🔐",
+    "ubicacion": "Oficina de David Cole en su departamento (la fiscalía te da acceso)",
+    "introduccion": "Caja fuerte de 6 dígitos empotrada en la pared de la oficina de David. La combinación se compone de 3 pistas separadas que debes encontrar.",
+    "combinacion": "081406",
+    "pistas": [
+      { "id": "pista_1", "descripcion": "Cumpleaños de Ethan (mes-día, formato MMDD)", "valor": "0814", "donde": "Foto del pastel de cumpleaños 8 + calendario al fondo (Galería del teléfono de David)" },
+      { "id": "pista_2", "descripcion": "Iniciales del nombre del CUSTODIO en el testamento, convertidas a número alfabético (A=01, B=02...)", "valor": "06-03 = FC = 0603 → simplificado: '06'", "donde": "Testamento (caja fuerte misma — paradoja diseñada como acertijo). Pista alterna: testamento mostrado en foto de galería (g2). Iniciales 'Frank Cole' = FC. F=06, C=03. Tomar solo F = 06." }
+    ],
+    "pista_resumen_para_jugador": "Combinación de 6 dígitos. Pista A: cumpleaños de Ethan (mes-día, 4 dígitos). Pista B: iniciales del custodio del testamento, F en alfabeto = 06 (solo F).",
+    "contenido": [
+      "📜 Testamento original firmado: 'A mi muerte, todo va a Ethan. Custodio: Frank Cole. NO Sarah. NO Brad.'",
+      "💌 Carta para Ethan 'para cuando tengas 18': sobre cómo no confiar ciegamente en nadie, ni siquiera familia, y verificar todo con su abuelo Frank.",
+      "💾 USB rotulado 'EVIDENCIA-BRAD' (mismo contenido que el Drive)",
+      "💵 $20,000 USD en efectivo (para emergencias de Ethan)",
+      "🔑 Llave pequeña etiquetada 'PB-CABAÑA-TÍA-LAUREN' (David la consiguió hace meses cuando fueron de viaje grupal). ¡Esta llave abre la cabaña de Spicewood!"
+    ],
+    "evidencia_desbloquea_al_abrir": "caja_fuerte_contenido"
+  },
+
+  "tu_telefono_contactos_extra": [
+    {
+      "id": "mr_buccees",
+      "nombre": "Manager Buc-ee's Round Rock",
+      "relacion": "Encargado del estacionamiento donde apareció el carro"
+    },
+    {
+      "id": "lone_star_butcher",
+      "nombre": "Lone Star Butcher Shop · Spicewood",
+      "relacion": "Carnicería donde se compró la sangre de cerdo"
+    },
+    {
+      "id": "agente_williams_fbi",
+      "nombre": "Agente Williams · FBI Austin",
+      "relacion": "FBI con quien David iba a reunirse el miércoles"
+    }
+  ],
+
+  "llamadas_arboles": {
+    "sarah": {
+      "nivel_inicial": [
+        { "id": "s1", "texto": "Cuéntame qué pasó ese martes", "respuesta": "Llegué a las 3:30 PM a recoger a Ethan. La maestra dijo 'su papá ya lo recogió'. Yo dije 'NO, hoy no le tocaba'. Llamé a David. No contestó. Llamé a la policía." },
+        { "id": "s2", "texto": "¿Tu relación con David?", "respuesta": "Divorciados pero cordiales. Por Ethan. David era buen padre, no haría esto." },
+        { "id": "s3", "texto": "¿Y con Brad?", "respuesta": "Brad es mi esposo. Es bueno con Ethan. Aunque... últimamente está raro. No sé." },
+        { "id": "s4", "texto": "¿Sospechas de alguien?", "respuesta": "Sospecho de David porque dicen que él se lo llevó. Pero algo me dice que NO fue él." },
+        { "id": "s5", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "s_evid_poliza",
+          "requiere_evidencia": "video_buccees",
+          "texto": "Sarah, Brad ha estado pagándole $5-10K mensuales a Lauren Murphy por 18 meses. ¿Sabes algo?",
+          "respuesta": "(silencio largo) ...sospechaba que se acostaban. Pero esto... esto es otro nivel. Dios mío. ¿Lauren? ¿Mi mejor amiga? Detective, agarra a Brad. Por favor."
+        }
+      ]
+    },
+    "brad": {
+      "nivel_inicial": [
+        { "id": "b1", "texto": "¿Dónde estabas el martes 2-5 PM?", "respuesta": "Reunión corporativa en oficina downtown. 11 colegas pueden confirmar de 9 AM a 5:30 PM. Le paso lista de contactos." },
+        { "id": "b2", "texto": "¿Tu relación con David?", "respuesta": "Cordial. Era el ex de mi esposa, lo respetaba. Ethan lo adoraba." },
+        { "id": "b3", "texto": "¿Conoces bien a Lauren Murphy?", "respuesta": "Amiga de Sarah. Sí, la conozco. La vemos seguido en cenas familiares." },
+        { "id": "b4", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "b_evid_banco",
+          "requiere_evidencia": "banco_brad",
+          "texto": "Le transferiste $50K a 'JM Holdings LLC' hace 6 meses. Y abriste una cuenta off-shore en Caimán hace 3 semanas. Justo cuando contrataste la póliza Aetna de $4.2M a nombre de Ethan. Explica.",
+          "respuesta": "(silencio) ...mi abogado va a tener que estar aquí. Quiero un abogado."
+        },
+        {
+          "id": "b_evid_colilla",
+          "requiere_evidencia": "adn_brad",
+          "texto": "Tu saliva en una colilla dentro del Subaru de David. Estuviste en ese carro. Habla.",
+          "respuesta": "(quiebre) ...detective, yo no maté a nadie. Fue Lauren. Ella insistió. Yo solo... la idea era el dinero del seguro, sí. Pero matar al niño no. Yo iba a sacarlo de la ecuación de otra forma. Por favor."
+        }
+      ]
+    },
+    "lauren": {
+      "nivel_inicial": [
+        { "id": "l1", "texto": "¿Dónde estabas el martes?", "respuesta": "Cliente de 1 a 2, después comí sola en Whole Foods, después errands. No tengo testigos para las 3 PM en adelante." },
+        { "id": "l2", "texto": "¿Tu relación con David?", "respuesta": "Lo conocí como ex de Sarah. No éramos cercanos. Lo vi en cumpleaños y fiestas." },
+        { "id": "l3", "texto": "¿Cómo está Sarah?", "respuesta": "Destrozada. Le llevé sopa anoche. Esto la va a romper." },
+        { "id": "l4", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "l_evid_cabello",
+          "requiere_evidencia": "adn_cabello",
+          "texto": "Tu cabello rubio en el volante del Subaru. Cómo llegó ahí?",
+          "respuesta": "...esa vez que David me dio aventón hace meses. Debe ser de entonces. Sí. Eso debe ser."
+        },
+        {
+          "id": "l_evid_compras",
+          "requiere_evidencia": "banco_lauren",
+          "texto": "Amazon te entregó una peluca castaña, sudadera UT Longhorns y gafas aviador el viernes 14 mar. 4 días antes de la 'desaparición'. Tu Tarjeta. Explica.",
+          "respuesta": "(silencio largo) ...era para un disfraz, una fiesta..."
+        },
+        {
+          "id": "l_evid_video",
+          "requiere_evidencia": "video_trafico",
+          "texto": "La cámara de tráfico te tiene rubia, sin peluca, conduciendo el Tesla de Brad hacia Pace Bend Park el martes 6:30 PM. Con alguien en el asiento trasero. Habla o vamos por Ethan ahora.",
+          "respuesta": "(llanto) ...Ethan está vivo. En la cabaña. Sótano. Llave pequeña, etiqueta plateada. No le he hecho nada. Era Brad el que insistió. Yo lo amo, hago todo por él. Por favor, sálvenlo a él, no a mí."
+        }
+      ]
+    },
+    "thompson": {
+      "nivel_inicial": [
+        { "id": "t1", "texto": "Describe al hombre que recogió a Ethan", "respuesta": "Bueno... era David. Bueno, parecía David. Sudadera UT, gafas, cabello castaño." },
+        { "id": "t2", "texto": "¿Notó algo raro?", "respuesta": "(pausa larga) ...no quería decirlo porque me sentía culpable. Sí noté algo." },
+        { "id": "t3", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "t_evid_video_escuela",
+          "requiere_evidencia": "video_escuela",
+          "texto": "Vimos el video. El paso del hombre es corto. Tu lo notaste, verdad?",
+          "respuesta": "Sí. Sí lo noté. Era MÁS BAJO que David. Y la voz... la voz no era la misma, era más aguda. No me sostuvo la mirada. Le di a Ethan porque las credenciales estaban en orden y el niño no se opuso, pero detective, ese hombre NO ERA DAVID. Lo siento. Si lo hubiera dicho ese mismo día..."
+        }
+      ]
+    },
+    "frank": {
+      "nivel_inicial": [
+        { "id": "f1", "texto": "Cuéntame de su hijo David", "respuesta": "Mi muchacho. Trabajador. Buen padre. No haría daño a Ethan, jamás." },
+        { "id": "f2", "texto": "¿Cuándo habló con él por última vez?", "respuesta": "Lunes en la noche. Me llamó, alterado. Dijo 'papá, alguien está rondando afuera, te llamo en 10 minutos'. Nunca llamó. Llamé a la policía. Nadie me hizo caso." },
+        { "id": "f3", "texto": "¿A qué hora exactamente esa llamada?", "respuesta": "10:48 PM. Lo tengo grabado en mi celular." },
+        { "id": "f4", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "f_evid_gps",
+          "requiere_evidencia": "gps_carro",
+          "texto": "Frank, el GPS del Subaru confirma su versión. David estuvo cerca de su casa esa noche y después se fue a una dirección extraña. Le creo. ¿Algo más?",
+          "respuesta": "Detective, David hablaba mucho de Brad últimamente. Decía 'papá, ese hombre tiene algo turbio'. Estaba ahorrando para algo grande, no me decía qué. Iba a hablar con el FBI."
+        }
+      ]
+    },
+    "carlos": {
+      "nivel_inicial": [
+        { "id": "c1", "texto": "¿Por qué le prestó $80K a David?", "respuesta": "(defensivo) Era mi socio, le tenía confianza. No tengo que justificar a quién le presto dinero." },
+        { "id": "c2", "texto": "¿Para qué dijo David que necesitaba el dinero?", "respuesta": "Dijo 'algo importante para la seguridad de Ethan'. No me explicó más." },
+        { "id": "c3", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "c_evid_testamento",
+          "requiere_evidencia": "caja_fuerte_contenido",
+          "texto": "David te mandó copia de su testamento nuevo. ¿Por qué a ti?",
+          "respuesta": "Porque yo era su testigo de confianza. Me dijo 'si algo me pasa, esto sale a la luz'. Yo no quería creerle. Detective, David sabía que algo iba a pasar. Lo estaban silenciando."
+        }
+      ]
+    },
+    "jenny": {
+      "nivel_inicial": [
+        { "id": "j1", "texto": "¿Qué hacía en la casa Cole/Henderson?", "respuesta": "Cuidaba a Ethan después de la escuela. 3 días por semana." },
+        { "id": "j2", "texto": "¿Notó algo raro en la casa?", "respuesta": "(nerviosa) ...no quiero meterme en problemas." },
+        { "id": "j3", "texto": "Colgar", "respuesta": "..." }
+      ],
+      "desbloqueables": [
+        {
+          "id": "j_evid_video_buccees",
+          "requiere_evidencia": "video_buccees",
+          "texto": "Jenny, vi a Lauren en cámaras subiéndose al Tesla de Brad. Tú sabías que estaban juntos, verdad?",
+          "respuesta": "(llanto) Sí. Los vi muchas veces. Lauren entraba y salía cuando Sarah no estaba. Estaban como en su casa. Yo no quería decir nada porque... era mi trabajo. Lo siento."
+        }
+      ]
+    }
+  },
+
+  "evidencias_para_mostrar": [
+    { "id": "video_escuela", "nombre": "Video escuela: 'David' camina raro y más bajo", "fuente": "Cámaras → Westwood Elementary", "tipo": "digital" },
+    { "id": "video_buccees", "nombre": "Video Buc-ee's: Tesla TX-HND-3315 (Brad) recoge al impostor", "fuente": "Cámaras → Buc-ee's Round Rock", "tipo": "digital" },
+    { "id": "video_trafico", "nombre": "Video tráfico: Lauren rubia conduciendo Tesla a Spicewood", "fuente": "Cámaras → Carretera Pace Bend", "tipo": "digital" },
+    { "id": "video_casa", "nombre": "Video casa Cole: reloj cámara descalibrado revela David estuvo lunes 9 PM no martes 9 AM", "fuente": "Cámaras → Casa Cole timbre", "tipo": "digital" },
+    { "id": "banco_brad", "nombre": "Banco Brad: $50K a JM Holdings + Caimán + Aetna $4.2M", "fuente": "Reporte bancario", "tipo": "digital" },
+    { "id": "banco_lauren", "nombre": "Banco Lauren: recibe $5-10K mensuales de JM Holdings + compras Amazon", "fuente": "Reporte bancario", "tipo": "digital" },
+    { "id": "gps_carro", "nombre": "GPS Subaru: ruta lunes 8:45 PM South Lamar + Spicewood + zona industrial", "fuente": "GPS del carro de David", "tipo": "digital" },
+    { "id": "adn_sangre", "nombre": "ADN sangre carro = NO HUMANA (porcina, Lone Star Butcher Spicewood)", "fuente": "Forense → muestra sangre", "tipo": "fisica" },
+    { "id": "adn_cabello", "nombre": "ADN cabello volante = Lauren Murphy", "fuente": "Forense → muestra cabello", "tipo": "fisica" },
+    { "id": "adn_brad", "nombre": "ADN saliva colilla = Brad Henderson", "fuente": "Forense → muestra colilla", "tipo": "fisica" },
+    { "id": "adn_david", "nombre": "ADN sangre alfombrilla cajuela = David Cole", "fuente": "Forense → muestra alfombrilla", "tipo": "fisica" },
+    { "id": "msg_lauren_david", "nombre": "Mensaje WhatsApp Lauren citando a David South Lamar lunes 10 PM", "fuente": "Teléfono David → WhatsApp → L. Murphy", "tipo": "digital" },
+    { "id": "drive_evidencia", "nombre": "Drive David: carpeta EVIDENCIA-BRAD (póliza, chats, recibos hoteles, fotos espionaje)", "fuente": "Computadora → Drive", "tipo": "digital" },
+    { "id": "caja_fuerte_contenido", "nombre": "Contenido caja fuerte: testamento + USB + llave cabaña Spicewood", "fuente": "Caja fuerte", "tipo": "fisica" }
+  ],
+
+  "eventos_tiempo_real": [
+    { "paso": 8, "tipo": "sms", "de": "Número desconocido", "texto": "papi help" },
+    { "paso": 18, "tipo": "sms", "de": "Anónimo", "texto": "checa Spicewood antes de que sea tarde. cabaña vieja de la tía. apúrate." },
+    { "paso": 28, "tipo": "sms", "de": "APD Alerts", "texto": "🚨 Brad Henderson acaba de comprar boleto SOLO a Cabo San Lucas. Sale mañana 6 AM." },
+    { "paso": 38, "tipo": "sms", "de": "Capt. Reeves", "texto": "Detective. FBI llega mañana 8 AM. Si no resuelve, lo pierde." },
+    { "paso": 55, "tipo": "sms", "de": "Forense", "texto": "Cuerpo de David Cole hallado enterrado en propiedad rural Spicewood. Ethan en peligro inminente. Apúrate." }
+  ],
+
+  "solucion": {
+    "culpable_id": "lauren",
+    "complice_id": "brad",
+    "motivo_correcto": "fraude_seguro_vida",
+    "metodo_correcto": "asesinato_suplantacion",
+    "lugar_correcto": "depto_david_y_spicewood",
+    "evidencias_minimas_requeridas": 6,
+    "evidencias_clave_validas": [
+      "video_escuela", "video_buccees", "video_trafico", "video_casa",
+      "banco_brad", "banco_lauren",
+      "gps_carro",
+      "adn_sangre", "adn_cabello", "adn_brad", "adn_david",
+      "msg_lauren_david", "drive_evidencia", "caja_fuerte_contenido"
+    ]
+  },
+
+  "opciones_informe": {
+    "motivos": [
+      { "id": "fraude_seguro_vida", "texto": "Fraude de seguro de vida + relación íntima entre cómplices" },
+      { "id": "custodia_conflicto", "texto": "Conflicto de custodia" },
+      { "id": "venganza_familiar", "texto": "Venganza familiar" },
+      { "id": "deuda", "texto": "Cobro de deuda" },
+      { "id": "obsesion", "texto": "Obsesión por la víctima" }
+    ],
+    "metodos": [
+      { "id": "asesinato_suplantacion", "texto": "Asesinato de un padre + suplantación de identidad para secuestrar al niño" },
+      { "id": "secuestro_simple", "texto": "Secuestro simple por familiar" },
+      { "id": "asesinato_directo", "texto": "Asesinato directo de ambos" },
+      { "id": "huida_voluntaria", "texto": "Huida voluntaria del padre con el hijo" },
+      { "id": "secuestro_extraños", "texto": "Secuestro por desconocidos para rescate" }
+    ],
+    "lugares": [
+      { "id": "depto_david_y_spicewood", "texto": "Depto de David (asesinato padre) + cabaña Spicewood (niño retenido)" },
+      { "id": "buccees", "texto": "Buc-ee's Round Rock" },
+      { "id": "escuela", "texto": "Westwood Elementary" },
+      { "id": "casa_cole_henderson", "texto": "Casa Cole/Henderson" },
+      { "id": "lugar_desconocido", "texto": "Lugar aún desconocido" }
+    ]
+  },
+
+  "pistas_fiscalia_si_falla": {
+    "sarah": "Sarah tiene GPS de su Tesla + clientes que confirman. Pista: revisa el cabello en el volante y por qué el VIDEO muestra a alguien BAJITO.",
+    "brad": "Brad estuvo en oficina con 11 testigos. Pero NO ES INOCENTE — su saliva está en una colilla del carro de David. Es CÓMPLICE. Busca a la que ejecutó.",
+    "lauren_sin_complice": "Lauren NO trabajó sola. El dinero de seguros y la cuenta off-shore apuntan a un cerebro detrás. Revisa cuentas Brad.",
+    "thompson": "Estaba con 22 niños. Su testimonio es ORO pero no es culpable.",
+    "frank": "71 años, distancia. Su llamada del lunes 10:48 PM es PIEZA CLAVE pero no es culpable.",
+    "carlos": "Préstamo legítimo, video calls grabadas. Pista: ¿por qué David quería ver al FBI?",
+    "jenny": "30 alumnos en clase. Su testimonio sobre Brad y Lauren es importante pero no es ella.",
+    "david": "David es VÍCTIMA. La sangre del carro es PORCINA. Las cámaras de su casa están descalibradas. Pista: revisa el GPS — ¿adónde fue el lunes en la noche?",
+    "paulina_motivo_equivocado": "Cogiste al culpable pero motivo flojo. Pista: revisa la póliza Aetna $4.2M.",
+    "evidencia_insuficiente": "Acusación correcta pero abogados defensores lo van a tirar. Necesitas mínimo 6 evidencias clave. Sigue buscando."
+  },
+
+  "epilogo": [
+    "Ethan Cole fue rescatado vivo del sótano de la cabaña en Spicewood, deshidratado pero ileso. Reunido con su madre 4 horas después de tu informe.",
+    "Lauren Murphy fue declarada culpable de homicidio premeditado (David Cole), secuestro agravado de menor y fraude. Cadena perpetua sin posibilidad de fianza.",
+    "Brad Henderson fue declarado culpable como cómplice y arquitecto del plan. Cadena perpetua + reparación civil de $8M a Sarah.",
+    "Sarah Henderson cambió su apellido de regreso a Mitchell. Vendió la casa de West Lake. Ella y Ethan se mudaron a Cedar Park, cerca de Frank.",
+    "El cuerpo de David Cole fue exhumado y enterrado en el cementerio de Cedar Park. Frank Cole acompañó a Ethan en la ceremonia.",
+    "La póliza Aetna fue invalidada por fraude. Brad nunca cobró un centavo.",
+    "Capt. Reeves: 'Detective, esto es lo que se llama caso del año. Hay un sobre nuevo en su escritorio.'"
+  ]
+}

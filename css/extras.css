@@ -1,0 +1,68 @@
+/* ============================================================
+   extras.css — Estilos para módulos nuevos del Caso 2
+   (Computadora, cámaras, banco, GPS, caja fuerte)
+   Design puede reescribir este archivo libremente.
+   ============================================================ */
+
+/* ---- Laptop / Computadora ---- */
+.laptop-marco {
+  max-width: 720px;
+  margin: 20px auto;
+  background: #1a1a1a;
+  border: 10px solid #0f0f0f;
+  border-radius: 8px 8px 4px 4px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+.laptop-marco::after {
+  content: "";
+  display: block;
+  height: 8px;
+  background: linear-gradient(180deg, #2a2a2a, #0a0a0a);
+  margin-top: 0;
+  border-radius: 0 0 12px 12px;
+}
+.laptop-pantalla {
+  background: #1e1e1e;
+  min-height: 480px;
+  padding: 20px;
+  color: #e8e8e8;
+}
+.laptop-login {
+  text-align: center;
+  padding: 80px 20px;
+}
+.pc-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 30px;
+}
+.pc-app-icon {
+  text-align: center;
+  cursor: pointer;
+  padding: 18px 8px;
+  border-radius: 12px;
+  background: #2a2a2a;
+  transition: background 0.2s, transform 0.15s;
+}
+.pc-app-icon:hover {
+  background: #3a3a3a;
+  transform: translateY(-3px);
+}
+.pc-app-icon-emoji { font-size: 40px; margin-bottom: 8px; }
+.pc-app-icon-nombre { font-size: 12px; opacity: 0.9; }
+
+/* ---- Indicadores de evidencia visual ---- */
+.lista-item[data-camara] {
+  border-left: 3px solid #d4a574;
+  transition: background 0.2s;
+}
+.lista-item[data-camara]:hover {
+  background: #3a3a3a;
+}
+
+/* ---- Caja fuerte ---- */
+#cf-input {
+  font-family: 'IBM Plex Mono', monospace !important;
+}

@@ -7,25 +7,51 @@
 const Motor = (() => {
 
   const STORAGE_KEY = 'caso-abierto-save';
-  const CASOS_DISPONIBLES = ['caso-1']; // caso-2 y caso-3 se agregan luego
+  const CASOS_DISPONIBLES = ['caso-1', 'caso-2']; // caso-3 se agrega luego
+
+  // Definición de módulos disponibles (todos)
+  const MODULOS_DEF = {
+    'expediente':       { icono:'📁', nombre:'Expediente',         info:'Caso oficial' },
+    'telefono-victima': { icono:'📱', nombre:'Teléfono víctima',   info:'🔒 Bloqueado' },
+    'computadora':      { icono:'💻', nombre:'Computadora',        info:'🔒 Con password' },
+    'tu-telefono':      { icono:'📞', nombre:'Mi teléfono',         info:'Llamar contactos' },
+    'escena':           { icono:'📸', nombre:'Escena del crimen',   info:'' },
+    'camaras':          { icono:'📹', nombre:'Cámaras seguridad',   info:'Clips de video' },
+    'banco':            { icono:'🏦', nombre:'Reporte bancario',    info:'Cuentas sospechosos' },
+    'gps':              { icono:'📍', nombre:'GPS del carro',       info:'Rutas y paradas' },
+    'caja-fuerte':      { icono:'🔐', nombre:'Caja fuerte',         info:'Combinación 6 dígitos' },
+    'libreta':          { icono:'📓', nombre:'Libreta',             info:'Notas + sospechosos' },
+    'evidencias':       { icono:'📦', nombre:'Evidencia recogida',  info:'0 piezas' },
+    'informe':          { icono:'⚖️', nombre:'Presentar caso',      info:'a la fiscalía', destacado:true }
+  };
+
+  const MODULOS_DEFAULT_CASO_1 = [
+    'expediente','telefono-victima','tu-telefono','escena',
+    'libreta','evidencias','informe'
+  ];
 
   let state = {
-    casoActual: null,        // datos JSON del caso en juego
+    casoActual: null,
     casoActualId: null,
     intentos: 3,
     telefonoDesbloqueado: false,
+    computadoraDesbloqueada: false,
+    cajaFuerteAbierta: false,
+    camarasRevisadas: [],
+    adnSolicitados: [],
     chatsBorradosRecuperados: [],
     puntosEscenaExaminados: [],
-    objetosRecogidos: [],    // [{ id, nombre, fuente, analisis? }]
+    objetosRecogidos: [],
     solicitudesEscenaUsadas: 0,
-    evidenciasObtenidas: [], // ids de evidencias disponibles para mostrar/usar
+    evidenciasObtenidas: [],
     notasLibreta: '',
     sospechososDescartados: [],
-    timeline: [],            // [{ hora, texto }]
-    forenseEnCola: [],       // SMS forenses pendientes
-    pasosAcumulados: 0,      // contador para SMS retardados
+    timeline: [],
+    forenseEnCola: [],
+    eventosTiempoRealDisparados: [],
+    pasosAcumulados: 0,
     casosResueltos: [],
-    contactosLlamadosVeces: {} // {marcos: 2, paulina: 1}
+    contactosLlamadosVeces: {}
   };
 
   // ---- Save game ----
@@ -73,6 +99,10 @@ const Motor = (() => {
   function reiniciarCaso() {
     state.intentos = 3;
     state.telefonoDesbloqueado = false;
+    state.computadoraDesbloqueada = false;
+    state.cajaFuerteAbierta = false;
+    state.camarasRevisadas = [];
+    state.adnSolicitados = [];
     state.chatsBorradosRecuperados = [];
     state.puntosEscenaExaminados = [];
     state.objetosRecogidos = [];
@@ -84,6 +114,7 @@ const Motor = (() => {
     state.pasosAcumulados = 0;
     state.contactosLlamadosVeces = {};
     state.forenseEnCola = [];
+    state.eventosTiempoRealDisparados = [];
     guardar();
   }
 
@@ -204,8 +235,47 @@ const Motor = (() => {
     const c = state.casoActual;
     document.getElementById('caso-bandera').textContent = c.bandera;
     document.getElementById('caso-titulo').textContent = c.titulo;
+    renderModulos();
     actualizarIntentosVisual();
     actualizarBadges();
+  }
+
+  function renderModulos() {
+    const main = document.querySelector('#screen-escritorio .escritorio');
+    if (!main) return;
+    const lista = state.casoActual.modulos_disponibles || MODULOS_DEFAULT_CASO_1;
+    main.innerHTML = '';
+    lista.forEach(mid => {
+      const def = MODULOS_DEF[mid];
+      if (!def) return;
+      const div = document.createElement('div');
+      div.className = 'modulo' + (def.destacado ? ' destacado' : '');
+      div.dataset.modulo = mid;
+      div.innerHTML = `
+        <div class="modulo-icono">${def.icono}</div>
+        <div class="modulo-nombre">${def.nombre}</div>
+        <div class="modulo-info" data-modulo-info="${mid}">${def.info}</div>
+      `;
+      div.addEventListener('click', () => abrirModulo(mid));
+      main.appendChild(div);
+    });
+  }
+
+  function abrirModulo(mid) {
+    switch (mid) {
+      case 'expediente':       Motor.abrirExpedienteDesdeEscritorio(); break;
+      case 'telefono-victima': Telefono.abrir(); break;
+      case 'computadora':      if (window.Computadora) Computadora.abrir(); break;
+      case 'tu-telefono':      Llamadas.abrir(); break;
+      case 'escena':           Escena.abrir(); break;
+      case 'camaras':          if (window.Camaras) Camaras.abrir(); break;
+      case 'banco':            if (window.Banco) Banco.abrir(); break;
+      case 'gps':              if (window.GPS) GPS.abrir(); break;
+      case 'caja-fuerte':      if (window.CajaFuerte) CajaFuerte.abrir(); break;
+      case 'libreta':          Libreta.abrir(); break;
+      case 'evidencias':       Motor.abrirEvidencias(); break;
+      case 'informe':          Informe.abrir(); break;
+    }
   }
 
   function actualizarIntentosVisual() {
@@ -214,15 +284,22 @@ const Motor = (() => {
   }
 
   function actualizarBadges() {
-    const eTel = document.getElementById('badge-telefono-victima');
-    eTel.textContent = state.telefonoDesbloqueado ? 'Desbloqueado' : '🔒 Bloqueado';
-
-    const eEvid = document.getElementById('badge-evidencias');
-    eEvid.textContent = state.objetosRecogidos.length + ' piezas';
-
-    const eEscena = document.getElementById('badge-escena');
-    const max = state.casoActual.escena_crimen.max_solicitudes_policia;
-    eEscena.textContent = `${max - state.solicitudesEscenaUsadas} solicitudes restantes`;
+    setBadge('telefono-victima', state.telefonoDesbloqueado ? 'Desbloqueado' : '🔒 Bloqueado');
+    setBadge('evidencias', state.objetosRecogidos.length + ' piezas');
+    if (state.casoActual.escena_crimen) {
+      const max = state.casoActual.escena_crimen.max_solicitudes_policia;
+      setBadge('escena', `${max - state.solicitudesEscenaUsadas} solicitudes`);
+    }
+    if (state.casoActual.computadora_padre) {
+      setBadge('computadora', state.computadoraDesbloqueada ? 'Desbloqueada' : '🔒 Password');
+    }
+    if (state.casoActual.caja_fuerte) {
+      setBadge('caja-fuerte', state.cajaFuerteAbierta ? '✓ Abierta' : '🔐 Cerrada');
+    }
+  }
+  function setBadge(mid, txt) {
+    const el = document.querySelector(`[data-modulo-info="${mid}"]`);
+    if (el) el.textContent = txt;
   }
 
   // ---- Modal genérico ----
@@ -282,6 +359,16 @@ const Motor = (() => {
       Libreta.agregarTimelineAutoSMS(s.de, s.texto);
     });
     state.forenseEnCola = state.forenseEnCola.filter(s => s.pasoEnQueLlega > state.pasosAcumulados);
+
+    // Eventos en tiempo real definidos en el JSON del caso
+    const eventos = state.casoActual?.eventos_tiempo_real || [];
+    eventos.forEach((ev, idx) => {
+      if (ev.paso <= state.pasosAcumulados && !state.eventosTiempoRealDisparados.includes(idx)) {
+        state.eventosTiempoRealDisparados.push(idx);
+        notificacionSMS(ev.de, ev.texto);
+        Libreta.agregarTimelineAutoSMS(ev.de, ev.texto);
+      }
+    });
     guardar();
   }
 
@@ -375,22 +462,7 @@ const Motor = (() => {
       mostrarPantalla('escritorio');
     });
 
-    // Click en módulos del escritorio
-    document.querySelectorAll('.modulo').forEach(m => {
-      m.addEventListener('click', () => {
-        const mod = m.dataset.modulo;
-        switch (mod) {
-          case 'expediente':       Motor.abrirExpedienteDesdeEscritorio(); break;
-          case 'telefono-victima': Telefono.abrir(); break;
-          case 'tu-telefono':      Llamadas.abrir(); break;
-          case 'escena':           Escena.abrir(); break;
-          case 'libreta':          Libreta.abrir(); break;
-          case 'evidencias':       Motor.abrirEvidencias(); break;
-          case 'informe':          Informe.abrir(); break;
-        }
-      });
-    });
-
+    // Módulos del escritorio se inyectan dinámicamente en renderModulos()
     renderInicio();
     mostrarPantalla('inicio');
   }
