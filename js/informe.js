@@ -16,10 +16,9 @@ const Informe = (() => {
 
     const objetosRecogidos = Motor.state.objetosRecogidos;
 
-    // Lista de evidencias disponibles para checar
+    // Sincronizar evidencias desde objetos recogidos (mapeo legacy del Caso 1)
     const evidsDisponibles = [...evidsObt];
     objetosRecogidos.forEach(o => {
-      // Mapear objetos recogidos a sus evidencias canónicas
       if (o.id === 'p2' && !evidsDisponibles.includes('fibras_cojin')) evidsDisponibles.push('fibras_cojin');
       if (o.id === 'p3-copa_residuo' && !evidsDisponibles.includes('zolpidem_copa')) evidsDisponibles.push('zolpidem_copa');
       if (o.id === 'p3-botella_vino' && !evidsDisponibles.includes('huellas_botella')) evidsDisponibles.push('huellas_botella');
@@ -59,6 +58,18 @@ const Informe = (() => {
       <option value="${l.id}">${l.texto}</option>
     `).join('');
 
+    // Si el caso tiene cómplice, agregar dropdown opcional
+    const tieneComplice = !!c.solucion.complice_id;
+    const complicHTML = tieneComplice ? `
+      <div class="informe-seccion">
+        <div class="informe-seccion-label">2. CÓMPLICE (opcional pero recomendado)</div>
+        <select id="informe-complice">
+          <option value="">— Ninguno —</option>
+          ${sospechososOptions}
+        </select>
+      </div>
+    ` : '';
+
     Motor.abrirModal(`
       <div class="modal-header">
         <h2 class="modal-titulo">⚖️ Presentar caso a la fiscalía</h2>
@@ -71,15 +82,17 @@ const Informe = (() => {
         </div>
 
         <div class="informe-seccion">
-          <div class="informe-seccion-label">1. CULPABLE</div>
+          <div class="informe-seccion-label">1. CULPABLE PRINCIPAL</div>
           <select id="informe-culpable">
             <option value="">— Seleccionar sospechoso —</option>
             ${sospechososOptions}
           </select>
         </div>
 
+        ${complicHTML}
+
         <div class="informe-seccion">
-          <div class="informe-seccion-label">2. MOTIVO</div>
+          <div class="informe-seccion-label">${tieneComplice ? '3' : '2'}. MOTIVO</div>
           <select id="informe-motivo">
             <option value="">— Seleccionar motivo —</option>
             ${motivosOptions}
@@ -87,7 +100,7 @@ const Informe = (() => {
         </div>
 
         <div class="informe-seccion">
-          <div class="informe-seccion-label">3. MÉTODO</div>
+          <div class="informe-seccion-label">${tieneComplice ? '4' : '3'}. MÉTODO</div>
           <select id="informe-metodo">
             <option value="">— Seleccionar método —</option>
             ${metodosOptions}
@@ -95,7 +108,7 @@ const Informe = (() => {
         </div>
 
         <div class="informe-seccion">
-          <div class="informe-seccion-label">4. LUGAR DEL HECHO</div>
+          <div class="informe-seccion-label">${tieneComplice ? '5' : '4'}. LUGAR DEL HECHO</div>
           <select id="informe-lugar">
             <option value="">— Seleccionar lugar —</option>
             ${lugaresOptions}
@@ -103,13 +116,16 @@ const Informe = (() => {
         </div>
 
         <div class="informe-seccion">
-          <div class="informe-seccion-label">5. EVIDENCIAS QUE SUSTENTAN LA ACUSACIÓN</div>
+          <div class="informe-seccion-label">${tieneComplice ? '6' : '5'}. EVIDENCIAS QUE SUSTENTAN LA ACUSACIÓN</div>
           <p style="font-size:12px; opacity:0.7; margin-bottom:10px;">
-            Marca todas las evidencias que prueben tu caso. Mínimo ${c.solucion.evidencias_minimas_requeridas} requeridas.
+            Marca todas las evidencias que prueben tu caso. Mínimo <strong>${c.solucion.evidencias_minimas_requeridas}</strong> evidencias clave requeridas.
           </p>
           <div class="informe-evidencias-lista">
             ${evidsHTML}
           </div>
+          <p style="font-size:11px; opacity:0.6; margin-top:8px;">
+            Tienes <strong>${evidsDisponibles.length}</strong> evidencias recogidas. Las que no son clave no cuentan pero no penalizan.
+          </p>
         </div>
 
         <div class="informe-submit">
@@ -122,7 +138,9 @@ const Informe = (() => {
   }
 
   function presentar() {
+    const c = Motor.state.casoActual;
     const culpable = document.getElementById('informe-culpable').value;
+    const complice = document.getElementById('informe-complice')?.value || '';
     const motivo = document.getElementById('informe-motivo').value;
     const metodo = document.getElementById('informe-metodo').value;
     const lugar = document.getElementById('informe-lugar').value;
@@ -133,10 +151,9 @@ const Informe = (() => {
       return;
     }
 
-    const sol = Motor.state.casoActual.solucion;
-    const pistas = Motor.state.casoActual.pistas_fiscalia_si_falla;
+    const sol = c.solucion;
+    const pistas = c.pistas_fiscalia_si_falla;
 
-    // Validaciones
     const culpableOk = culpable === sol.culpable_id;
     const motivoOk = motivo === sol.motivo_correcto;
     const metodoOk = metodo === sol.metodo_correcto;
@@ -145,33 +162,37 @@ const Informe = (() => {
     const evidsValidas = evidsCheck.filter(e => sol.evidencias_clave_validas.includes(e));
     const evidenciaSuficiente = evidsValidas.length >= sol.evidencias_minimas_requeridas;
 
-    // Si todo OK → VICTORIA
+    // VICTORIA total
     if (culpableOk && motivoOk && metodoOk && lugarOk && evidenciaSuficiente) {
       Motor.toast('CASO RESUELTO ✓', 4000);
       setTimeout(() => Motor.ganarCaso(), 1500);
       return;
     }
 
-    // Si culpable OK pero evidencia insuficiente → no gasta intento, regresa
+    // Culpable OK pero evidencia insuficiente → NO gasta intento
     if (culpableOk && motivoOk && !evidenciaSuficiente) {
-      alert(`⚖️ FISCAL:\n\n"${pistas.paulina_evidencia_insuficiente}"\n\nEl informe le es regresado. NO se descuenta intento.`);
+      const msg = pistas.evidencia_insuficiente || pistas.paulina_evidencia_insuficiente ||
+        'Acusación correcta pero abogados defensores la van a tirar. Necesitas más evidencias clave.';
+      alert(`⚖️ FISCAL:\n\n"${msg}"\n\nEl informe le es regresado. NO se descuenta intento.`);
       return;
     }
 
-    // Si culpable OK pero motivo equivocado → no gasta intento, regresa
+    // Culpable OK pero motivo equivocado → NO gasta intento
     if (culpableOk && !motivoOk) {
-      alert(`⚖️ FISCAL:\n\n"${pistas.paulina_motivo_equivocado}"\n\nNO se descuenta intento.`);
+      const msg = pistas.motivo_equivocado || pistas.paulina_motivo_equivocado ||
+        'Cogiste al culpable pero el motivo no cuadra. Revisa la verdadera razón.';
+      alert(`⚖️ FISCAL:\n\n"${msg}"\n\nNO se descuenta intento.`);
       return;
     }
 
     // Culpable INCORRECTO → gasta intento
-    const sospChosen = Motor.state.casoActual.sospechosos.find(s => s.id === culpable);
-    const pista = pistas[culpable] || pistas.default;
+    const sospChosen = c.sospechosos.find(s => s.id === culpable);
+    const pista = pistas[culpable] || pistas.default ||
+      'Hay algo que no cuadra. Revisa quién tenía más que ganar con la víctima fuera del camino.';
     alert(`⚖️ FISCAL:\n\nTu acusación contra ${sospChosen.nombre} no procedió.\n\n"${pista}"\n\nSe descuenta un intento.`);
     Motor.gastarIntento();
 
     if (Motor.state.intentos > 0) {
-      // Regresar al escritorio (cerrar modal)
       Motor.cerrarModal();
     }
   }

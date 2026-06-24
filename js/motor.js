@@ -240,6 +240,7 @@ const Motor = (() => {
     actualizarBadges();
   }
 
+  let delegationHandlerInstalado = false;
   function renderModulos() {
     const main = document.querySelector('#screen-escritorio .escritorio');
     if (!main) return;
@@ -256,25 +257,37 @@ const Motor = (() => {
         <div class="modulo-nombre">${def.nombre}</div>
         <div class="modulo-info" data-modulo-info="${mid}">${def.info}</div>
       `;
-      div.addEventListener('click', () => abrirModulo(mid));
       main.appendChild(div);
     });
+    if (!delegationHandlerInstalado) {
+      main.addEventListener('click', (e) => {
+        const m = e.target.closest('.modulo');
+        if (m && m.dataset.modulo) abrirModulo(m.dataset.modulo);
+      });
+      delegationHandlerInstalado = true;
+    }
   }
 
   function abrirModulo(mid) {
-    switch (mid) {
-      case 'expediente':       Motor.abrirExpedienteDesdeEscritorio(); break;
-      case 'telefono-victima': Telefono.abrir(); break;
-      case 'computadora':      if (window.Computadora) Computadora.abrir(); break;
-      case 'tu-telefono':      Llamadas.abrir(); break;
-      case 'escena':           Escena.abrir(); break;
-      case 'camaras':          if (window.Camaras) Camaras.abrir(); break;
-      case 'banco':            if (window.Banco) Banco.abrir(); break;
-      case 'gps':              if (window.GPS) GPS.abrir(); break;
-      case 'caja-fuerte':      if (window.CajaFuerte) CajaFuerte.abrir(); break;
-      case 'libreta':          Libreta.abrir(); break;
-      case 'evidencias':       Motor.abrirEvidencias(); break;
-      case 'informe':          Informe.abrir(); break;
+    try {
+      switch (mid) {
+        case 'expediente':       Motor.abrirExpedienteDesdeEscritorio(); break;
+        case 'telefono-victima': Telefono.abrir(); break;
+        case 'computadora':      Computadora.abrir(); break;
+        case 'tu-telefono':      Llamadas.abrir(); break;
+        case 'escena':           Escena.abrir(); break;
+        case 'camaras':          Camaras.abrir(); break;
+        case 'banco':            Banco.abrir(); break;
+        case 'gps':              GPS.abrir(); break;
+        case 'caja-fuerte':      CajaFuerte.abrir(); break;
+        case 'libreta':          Libreta.abrir(); break;
+        case 'evidencias':       Motor.abrirEvidencias(); break;
+        case 'informe':          Informe.abrir(); break;
+        default: console.warn('Módulo desconocido:', mid);
+      }
+    } catch (e) {
+      console.error('Error abriendo módulo', mid, e);
+      Motor.toast('Error al abrir ' + mid);
     }
   }
 

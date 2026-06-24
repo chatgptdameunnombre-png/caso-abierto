@@ -1,0 +1,474 @@
+/* ============================================================
+   escritorio.css — Vista del escritorio del detective
+   Cada módulo es un OBJETO visual real (no card genérica).
+   ============================================================ */
+
+/* Override del fondo del escritorio: mesa de madera + lámpara */
+#screen-escritorio {
+  background:
+    radial-gradient(ellipse 800px 500px at 50% -100px, rgba(244, 195, 130, 0.18), transparent 70%),
+    radial-gradient(ellipse 600px 800px at 50% 60%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%),
+    url('../img/desk-bg.jpg') center/cover no-repeat,
+    #1a120b;
+  min-height: 100vh;
+  padding: 30px 40px 60px;
+}
+
+/* Top bar más sutil sobre la mesa */
+.top-bar {
+  background: rgba(20, 14, 8, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(214, 165, 116, 0.2);
+  border-radius: 4px;
+  padding: 14px 26px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* Grid del escritorio — más espacioso, objetos pueden "tirarse" */
+.escritorio {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* Reset del .modulo base — vamos a estilizar cada uno como objeto */
+.modulo {
+  position: relative;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  min-height: 180px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.25s;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.55));
+}
+
+.modulo:hover {
+  transform: translateY(-8px) rotate(0deg) !important;
+  filter: drop-shadow(0 20px 28px rgba(0,0,0,0.7)) brightness(1.05);
+}
+
+/* El emoji actúa como el "objeto" visual, lo agrandamos */
+.modulo-icono {
+  font-size: 0; /* ocultamos texto por defecto */
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+/* Etiqueta del módulo */
+.modulo-nombre {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--paper, #f1e4c4);
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  margin-top: 8px;
+}
+
+.modulo-info {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(214, 165, 116, 0.9);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ====================================================
+   OBJETOS — cada módulo es una forma CSS distinta
+   ==================================================== */
+
+/* ===== EXPEDIENTE — Carpeta manila con pestaña ===== */
+.modulo[data-modulo="expediente"] {
+  transform: rotate(-2.5deg);
+}
+.modulo[data-modulo="expediente"] .modulo-icono {
+  background: linear-gradient(135deg, #e0c180 0%, #c9a662 100%);
+  width: 140px;
+  height: 110px;
+  border-radius: 2px;
+  box-shadow: inset 0 -8px 18px rgba(120,80,30,0.3), inset 0 2px 0 rgba(255,255,255,0.2);
+  position: relative;
+}
+.modulo[data-modulo="expediente"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  top: -14px; left: 14px;
+  width: 50px; height: 18px;
+  background: linear-gradient(135deg, #d4b070, #b8924f);
+  border-radius: 4px 4px 0 0;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+}
+.modulo[data-modulo="expediente"] .modulo-icono::after {
+  content: "EXPEDIENTE";
+  position: absolute;
+  bottom: 8px; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(60, 40, 15, 0.7);
+}
+
+/* ===== TELÉFONO VÍCTIMA — Smartphone vertical ===== */
+.modulo[data-modulo="telefono-victima"] {
+  transform: rotate(3deg);
+}
+.modulo[data-modulo="telefono-victima"] .modulo-icono {
+  background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+  width: 75px;
+  height: 140px;
+  border-radius: 14px;
+  border: 3px solid #2a2a2a;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.5);
+}
+.modulo[data-modulo="telefono-victima"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 28px; height: 8px;
+  background: #000;
+  border-radius: 0 0 8px 8px;
+}
+.modulo[data-modulo="telefono-victima"] .modulo-icono::after {
+  content: "🔒";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+}
+
+/* ===== COMPUTADORA — Laptop entreabierta ===== */
+.modulo[data-modulo="computadora"] {
+  transform: rotate(-1deg);
+}
+.modulo[data-modulo="computadora"] .modulo-icono {
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #2a2a2a 75%, #4a4a4a 75%, #1a1a1a 100%);
+  border: 2px solid #1a1a1a;
+  border-radius: 6px 6px 2px 2px;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+.modulo[data-modulo="computadora"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  inset: 6px 6px 28px 6px;
+  background: linear-gradient(135deg, #1a3a5a 0%, #0a1a3a 100%);
+  border-radius: 2px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.4);
+}
+.modulo[data-modulo="computadora"] .modulo-icono::after {
+  content: "💻";
+  position: absolute;
+  top: 30%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  filter: drop-shadow(0 0 8px rgba(140,180,220,0.5));
+}
+
+/* ===== MI TELÉFONO — Teléfono viejo con teclado ===== */
+.modulo[data-modulo="tu-telefono"] {
+  transform: rotate(2deg);
+}
+.modulo[data-modulo="tu-telefono"] .modulo-icono {
+  background: linear-gradient(135deg, #3a3a40, #1a1a20);
+  width: 75px;
+  height: 130px;
+  border-radius: 8px;
+  border: 2px solid #2a2a30;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.modulo[data-modulo="tu-telefono"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  inset: 8px 8px 60px 8px;
+  background: linear-gradient(180deg, #4a5a3a, #3a4a2a);
+  border-radius: 3px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+}
+.modulo[data-modulo="tu-telefono"] .modulo-icono::after {
+  content: "📞";
+  position: absolute;
+  bottom: 18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+}
+
+/* ===== ESCENA — Polaroid pegada con cinta ===== */
+.modulo[data-modulo="escena"] {
+  transform: rotate(4deg);
+}
+.modulo[data-modulo="escena"] .modulo-icono {
+  background: #f0e8d8;
+  width: 140px;
+  height: 130px;
+  border-radius: 2px;
+  padding: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+  position: relative;
+}
+.modulo[data-modulo="escena"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px; height: 20px;
+  background: rgba(220, 210, 170, 0.7);
+  border-radius: 1px;
+}
+.modulo[data-modulo="escena"] .modulo-icono::after {
+  content: "📸";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -65%);
+  width: 110px; height: 80px;
+  background: linear-gradient(135deg, #4a4035, #1a1612);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+/* ===== CÁMARAS — Pantalla CCTV ===== */
+.modulo[data-modulo="camaras"] {
+  transform: rotate(-3deg);
+}
+.modulo[data-modulo="camaras"] .modulo-icono {
+  background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+  width: 140px;
+  height: 110px;
+  border: 4px solid #2a2a2a;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6), inset 0 0 12px rgba(0,0,0,0.6);
+}
+.modulo[data-modulo="camaras"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background:
+    repeating-linear-gradient(0deg, rgba(120,140,120,0.08) 0, rgba(120,140,120,0.08) 1px, transparent 1px, transparent 3px),
+    radial-gradient(circle at 50% 50%, #2a5a3a 0%, #1a3020 80%);
+  border-radius: 2px;
+}
+.modulo[data-modulo="camaras"] .modulo-icono::after {
+  content: "📹";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  filter: drop-shadow(0 0 8px rgba(120,200,140,0.6));
+}
+
+/* ===== BANCO — Papel oficial con sello ===== */
+.modulo[data-modulo="banco"] {
+  transform: rotate(1.5deg);
+}
+.modulo[data-modulo="banco"] .modulo-icono {
+  background: linear-gradient(180deg, #f4ebd0 0%, #e6d8b0 100%);
+  width: 110px;
+  height: 140px;
+  border-radius: 1px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  position: relative;
+}
+.modulo[data-modulo="banco"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 10px, rgba(80,50,20,0.15) 10px, rgba(80,50,20,0.15) 11px);
+}
+.modulo[data-modulo="banco"] .modulo-icono::after {
+  content: "🏦";
+  position: absolute;
+  top: 55%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 38px;
+  filter: drop-shadow(0 0 6px rgba(139, 58, 58, 0.5));
+  opacity: 0.85;
+}
+
+/* ===== GPS — Mapa doblado ===== */
+.modulo[data-modulo="gps"] {
+  transform: rotate(-2deg);
+}
+.modulo[data-modulo="gps"] .modulo-icono {
+  background:
+    linear-gradient(90deg, transparent 33%, rgba(0,0,0,0.15) 33%, rgba(0,0,0,0.15) 34%, transparent 34%, transparent 66%, rgba(0,0,0,0.15) 66%, rgba(0,0,0,0.15) 67%, transparent 67%),
+    linear-gradient(135deg, #d4c8a0 0%, #b8a878 100%);
+  width: 140px;
+  height: 100px;
+  border-radius: 1px;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+.modulo[data-modulo="gps"] .modulo-icono::after {
+  content: "📍";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 38px;
+  filter: drop-shadow(0 2px 4px rgba(139, 58, 58, 0.8));
+}
+
+/* ===== CAJA FUERTE — Caja metálica con dial ===== */
+.modulo[data-modulo="caja-fuerte"] {
+  transform: rotate(2deg);
+}
+.modulo[data-modulo="caja-fuerte"] .modulo-icono {
+  background: linear-gradient(135deg, #3a3530 0%, #1a1815 100%);
+  width: 120px;
+  height: 130px;
+  border-radius: 4px;
+  border: 3px solid #2a2520;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6), inset 0 0 18px rgba(0,0,0,0.5);
+}
+.modulo[data-modulo="caja-fuerte"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #5a5045 0%, #2a2520 70%);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.4), 0 0 0 3px #1a1815;
+}
+.modulo[data-modulo="caja-fuerte"] .modulo-icono::after {
+  content: "🔐";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+}
+
+/* ===== LIBRETA — Cuaderno con espiral ===== */
+.modulo[data-modulo="libreta"] {
+  transform: rotate(-1.5deg);
+}
+.modulo[data-modulo="libreta"] .modulo-icono {
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 12px, rgba(120,90,40,0.2) 12px, rgba(120,90,40,0.2) 13px),
+    linear-gradient(135deg, #f0e4c0, #d8c898);
+  width: 120px;
+  height: 140px;
+  border-radius: 2px 6px 6px 2px;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(120,80,30,0.3);
+}
+.modulo[data-modulo="libreta"] .modulo-icono::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 8px; height: 100%;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 8px, #4a3a20 8px, #4a3a20 12px),
+    linear-gradient(135deg, #6a5430, #4a3a20);
+  border-radius: 2px 0 0 2px;
+}
+.modulo[data-modulo="libreta"] .modulo-icono::after {
+  content: "📓";
+  position: absolute;
+  top: 50%; left: 55%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  opacity: 0.75;
+}
+
+/* ===== EVIDENCIA — Caja de cartón con bolsa ===== */
+.modulo[data-modulo="evidencias"] {
+  transform: rotate(2.5deg);
+}
+.modulo[data-modulo="evidencias"] .modulo-icono {
+  background: linear-gradient(135deg, #a08458 0%, #806648 100%);
+  width: 140px;
+  height: 110px;
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5), inset 0 -10px 18px rgba(60,40,20,0.4);
+}
+.modulo[data-modulo="evidencias"] .modulo-icono::before {
+  content: "EVIDENCE";
+  position: absolute;
+  top: 18px; left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #d4a574;
+  background: rgba(20,15,10,0.6);
+  padding: 3px 12px;
+  border: 1px dashed rgba(214,165,116,0.4);
+}
+.modulo[data-modulo="evidencias"] .modulo-icono::after {
+  content: "📦";
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+}
+
+/* ===== PRESENTAR CASO — Carpeta roja con sello ===== */
+.modulo[data-modulo="informe"] {
+  grid-column: span 2;
+  transform: rotate(0deg);
+}
+.modulo[data-modulo="informe"] .modulo-icono {
+  background: linear-gradient(135deg, #8b3a3a 0%, #5e2626 100%);
+  width: 180px;
+  height: 140px;
+  border-radius: 2px;
+  border: 2px solid #3e1818;
+  position: relative;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.55), inset 0 -10px 18px rgba(30,10,10,0.5);
+}
+.modulo[data-modulo="informe"] .modulo-icono::before {
+  content: "FISCALÍA";
+  position: absolute;
+  top: 18px; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #f0d090;
+  border: 1px solid #f0d090;
+  padding: 3px 14px;
+  background: rgba(20,5,5,0.4);
+}
+.modulo[data-modulo="informe"] .modulo-icono::after {
+  content: "⚖️";
+  position: absolute;
+  bottom: 16px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 44px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+}
+.modulo[data-modulo="informe"]:hover .modulo-icono {
+  background: linear-gradient(135deg, #a04a4a 0%, #6e3030 100%);
+  box-shadow: 0 12px 26px rgba(139,58,58,0.6), inset 0 -10px 18px rgba(30,10,10,0.5);
+}

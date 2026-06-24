@@ -22,16 +22,18 @@ const Telefono = (() => {
   }
 
   function renderPantallaPIN() {
+    const tv = Motor.state.casoActual.telefono_victima || {};
+    const pista = tv.pista_pin || 'Pista: investiga el contexto para encontrar el PIN.';
     Motor.abrirModal(`
-      <div class="modal-header"><h2 class="modal-titulo">📱 Teléfono de la víctima</h2></div>
+      <div class="modal-header"><h2 class="modal-titulo">📱 ${tv.modelo || 'Teléfono de la víctima'}</h2></div>
       <div class="telefono-marco">
         <div class="telefono-pantalla">
           <div class="telefono-pin">
             <p style="opacity:0.7; font-size:13px;">Ingrese PIN de 4 dígitos</p>
             <input type="password" id="pin-input" maxlength="4" inputmode="numeric" placeholder="••••">
             <button id="btn-pin-submit">Desbloquear</button>
-            <p id="pin-hint" style="opacity:0.5; font-size:11px; margin-top:30px;">
-              Pista: revisa la escena del crimen, hay notas pegadas.
+            <p id="pin-hint" style="opacity:0.55; font-size:11px; margin-top:30px; padding:0 20px;">
+              💡 ${pista}
             </p>
           </div>
         </div>
