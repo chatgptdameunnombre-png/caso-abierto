@@ -66,3 +66,16 @@
 #cf-input {
   font-family: 'IBM Plex Mono', monospace !important;
 }
+
+/* ---- Puntos especiales de la escena (PIN visible) ---- */
+.escena-punto.es-pin {
+  background: #f0d040 !important;
+  color: #1a1a1a !important;
+  border-color: #fff !important;
+  box-shadow: 0 0 0 4px rgba(240, 208, 64, 0.4), 0 0 20px rgba(240, 208, 64, 0.6) !important;
+  animation: pinPulse 2s ease-in-out infinite;
+}
+@keyframes pinPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(240, 208, 64, 0.4), 0 0 12px rgba(240, 208, 64, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(240, 208, 64, 0.3), 0 0 24px rgba(240, 208, 64, 0.8); }
+}

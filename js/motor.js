@@ -355,31 +355,24 @@ const Motor = (() => {
     setTimeout(() => { if (div.parentNode) div.remove(); }, 18000);
   }
 
-  // ---- Forense en cola (llega tras N pasos del jugador) ----
-  function programarSMSForense(de, texto, pasosEspera = 2) {
-    state.forenseEnCola.push({
-      de, texto,
-      pasoEnQueLlega: state.pasosAcumulados + pasosEspera
-    });
-    guardar();
+  // ---- Forense por TIEMPO REAL (no por pasos) ----
+  // El SMS llega en N segundos. El análisis ya está disponible inmediato.
+  function programarSMSForense(de, texto, segundosEspera = 8) {
+    setTimeout(() => {
+      notificacionSMS(de, texto);
+      if (window.Libreta) Libreta.agregarTimelineAutoSMS(de, texto);
+    }, segundosEspera * 1000);
   }
 
   function avanzarPaso() {
     state.pasosAcumulados++;
-    const listos = state.forenseEnCola.filter(s => s.pasoEnQueLlega <= state.pasosAcumulados);
-    listos.forEach(s => {
-      notificacionSMS(s.de, s.texto);
-      Libreta.agregarTimelineAutoSMS(s.de, s.texto);
-    });
-    state.forenseEnCola = state.forenseEnCola.filter(s => s.pasoEnQueLlega > state.pasosAcumulados);
-
-    // Eventos en tiempo real definidos en el JSON del caso
+    // Eventos en tiempo real definidos en el JSON del caso (siguen por pasos)
     const eventos = state.casoActual?.eventos_tiempo_real || [];
     eventos.forEach((ev, idx) => {
       if (ev.paso <= state.pasosAcumulados && !state.eventosTiempoRealDisparados.includes(idx)) {
         state.eventosTiempoRealDisparados.push(idx);
         notificacionSMS(ev.de, ev.texto);
-        Libreta.agregarTimelineAutoSMS(ev.de, ev.texto);
+        if (window.Libreta) Libreta.agregarTimelineAutoSMS(ev.de, ev.texto);
       }
     });
     guardar();
@@ -482,6 +475,7 @@ const Motor = (() => {
 
   function abrirExpedienteDesdeEscritorio() {
     const c = state.casoActual;
+    const datosMenor = c.briefing.datos_personales_menor;
     abrirModal(`
       <div class="modal-header">
         <h2 class="modal-titulo">📁 Expediente ${c.id.toUpperCase()}</h2>
@@ -490,6 +484,10 @@ const Motor = (() => {
         <h2>${c.briefing.titulo}</h2>
         <h3>VÍCTIMA</h3>
         <p><strong>${c.victima.nombre}</strong>, ${c.victima.edad} años · ${c.victima.ocupacion}<br>${c.victima.direccion}</p>
+        ${datosMenor ? `
+          <h3>DATOS PERSONALES DEL MENOR</h3>
+          <ul>${datosMenor.map(d => `<li>${d}</li>`).join('')}</ul>
+        ` : ''}
         <h3>HECHOS</h3>
         <ul>${c.briefing.hechos.map(h => `<li>${h}</li>`).join('')}</ul>
         <h3>ÚLTIMA ACTIVIDAD CONFIRMADA</h3>

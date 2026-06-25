@@ -64,6 +64,14 @@
       { "hora": "Mar 18 mar 8:14 PM", "evento": "APD encuentra el Subaru abandonado en Buc-ee's" }
     ],
     "observaciones": "APD trata a David Cole como SOSPECHOSO PRIMARIO (sospecha de secuestro de custodia que se tornó violento). El detective debe construir la verdad real.",
+    "datos_personales_menor": [
+      "Nombre: Ethan Cole",
+      "Edad: 8 años",
+      "Fecha de nacimiento: 14 de agosto de 2017",
+      "Padecimientos: ADD leve, medicado con Concerta",
+      "Alergias: ninguna conocida",
+      "Sangre: O+"
+    ],
     "nota_jefe": "Detective, tu trabajo es encontrar a Ethan VIVO. APD está cazando a David pero el caso tiene huecos — la sangre, el carro abandonado, los tiempos. Algo apesta. La madre histérica, el padrastro cooperador, el FBI llega en 36 hrs a quitarnos el caso. Construye la verdad a partir de lo que NO te están diciendo. — Capt. Reeves"
   },
 
@@ -157,7 +165,7 @@
   "telefono_victima": {
     "modelo": "iPhone de David Cole",
     "pin": "0814",
-    "pista_pin": "El PIN es la fecha de cumpleaños de Ethan (mes-día). Está en una foto de su pastel de cumpleaños número 8.",
+    "pista_pin": "Revisa el EXPEDIENTE → 'Datos personales del menor'. El PIN son los 4 dígitos del cumpleaños de Ethan (formato MMDD, así son cuatro dígitos).",
     "apps": {
       "whatsapp": {
         "nombre": "WhatsApp",
@@ -232,7 +240,7 @@
         "lista": [
           { "titulo": "Cosas raras Brad", "fecha": "1 mar", "texto": "- Póliza Aetna $4.2M a nombre de Ethan, beneficiario BRAD\n- ¿Cuándo se contrató? Hace 8 meses\n- ¿Sarah sabe? NO le mencionar todavía\n- Hablar con abogado MIÉRCOLES" },
           { "titulo": "FBI denuncia", "fecha": "10 mar", "texto": "Llamar oficina FBI Austin: (512) 555-FBI-1\nAgente Williams\nCita el miércoles 11 AM\nLLEVAR: copia póliza + capturas chats Brad-Lauren" },
-          { "titulo": "Si algo me pasa", "fecha": "12 mar", "texto": "Carpeta EVIDENCIA-BRAD en Drive.\nPassword laptop: Ethan2018!\nCustodio testamento: papá.\nQUE ETHAN ESTÉ A SALVO ANTES QUE NADA." }
+          { "titulo": "⚠️ SI ALGO ME PASA", "fecha": "12 mar", "texto": "Carpeta EVIDENCIA-BRAD en Drive.\n\n🔑 PASSWORD LAPTOP: Ethan2018!\n\nCustodio testamento: papá.\nQUE ETHAN ESTÉ A SALVO ANTES QUE NADA." }
         ]
       },
       "correo": {
@@ -251,7 +259,7 @@
   "computadora_padre": {
     "modelo": "MacBook Pro de David Cole",
     "password": "Ethan2018!",
-    "pista_password": "Las notas de David mencionan 'password laptop: Ethan2018!'",
+    "pista_password": "Primero desbloquea el TELÉFONO DE LA VÍCTIMA (PIN 0814) → app NOTAS → busca 'Si algo me pasa'. Ahí está la password de la laptop.",
     "apps": {
       "gmail": {
         "nombre": "Gmail",
